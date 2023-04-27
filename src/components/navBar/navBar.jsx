@@ -2,7 +2,7 @@ import logo from "./assets/logo.png"
 import CartWidget from "../CartWidget/CartWidget"
 import "../../sass/main.css"
 
-const NavBar = () => {
+export const NavBar = () => {
 
     return (
         <nav className="nav">
