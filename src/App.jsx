@@ -1,7 +1,5 @@
-import NavBar from "./components/NavBar/NavBar";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import "./sass/main.css";
-import ItemCount from "./components/ItemCount/ItemCount";
+import { ItemCount, ItemListContainer, NavBar } from "./components";
 
 function App() {
   return (

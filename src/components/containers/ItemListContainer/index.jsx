@@ -1,5 +1,3 @@
-import "../../sass/main.css";
-
 const ItemListContainer = ({ greeting }) => {
   return (
     <div className='greeting'>
@@ -8,4 +6,4 @@ const ItemListContainer = ({ greeting }) => {
   );
 };
 
-export default ItemListContainer;
+export { ItemListContainer };

@@ -1,5 +1,4 @@
 import cart from "./assets/cart.svg";
-import "../../sass/main.css";
 
 const CartWidget = () => {
   return (
@@ -10,4 +9,4 @@ const CartWidget = () => {
   );
 };
 
-export default CartWidget;
+export { CartWidget };

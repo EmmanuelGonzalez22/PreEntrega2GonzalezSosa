@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../../sass/main.css";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
   const [cantidad, setCantidad] = useState(initial);
@@ -17,7 +16,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   };
 
   return (
-    <div>
+    <div className='container'>
       <div>
         <button onClick={incrementa}>+</button>
         <h4>{cantidad}</h4>
@@ -37,4 +36,4 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   );
 };
 
-export default ItemCount;
+export { ItemCount };

@@ -1,8 +1,7 @@
+import { CartWidget } from "../CartWidget";
 import logo from "./assets/logo.png";
-import CartWidget from "../CartWidget/CartWidget";
-import "../../sass/main.css";
 
-export const NavBar = () => {
+const NavBar = () => {
   return (
     <nav className='nav'>
       <a href='./index.html' className='logo__container'>
@@ -24,4 +23,4 @@ export const NavBar = () => {
   );
 };
 
-export default NavBar;
+export { NavBar };
