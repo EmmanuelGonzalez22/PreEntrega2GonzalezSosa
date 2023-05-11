@@ -8,12 +8,12 @@ const getProducts = () => {
   });
 };
 
-const fetchData = async () => {
+/* const fetchData = async () => {
   try {
     const response = await getProducts();
     console.log(response);
   } catch (error) {
     console.log(error);
   }
-};
-export { fetchData };
+}; */
+export { getProducts };

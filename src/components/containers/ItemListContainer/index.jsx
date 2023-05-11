@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
-import { fetchData } from "../../asyncMock";
+import { getProducts } from "../../asyncMock";
 import { ItemList } from "../../forms/ItemList";
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetchData();
+    getProducts()
+      .then((res) => {
+        setProducts(res);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   return (
     <div className='greeting'>
       <h1>{greeting}</h1>
-      <ItemList />
+      <ItemList products={products} />
     </div>
   );
 };
