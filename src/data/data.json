@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "camita 40x40cm",
+    "category": "camitas",
+    "price": 2200,
+    "stock": 20,
+    "img": "camita40.jpg"
+  },
+  {
+    "id": 2,
+    "name": "camita 60x50cm",
+    "category": "camitas",
+    "price": 3500,
+    "stock": 15,
+    "img": "camita50.jpg"
+  },
+  {
+    "id": 3,
+    "name": "camita 90x90cm",
+    "category": "camitas",
+    "price": 4800,
+    "stock": 23,
+    "img": "camita90.jpg"
+  },
+  {
+    "id": 4,
+    "name": "dog selection perro adulto x 21kg",
+    "category": "perro",
+    "price": 4400,
+    "stock": 21,
+    "img": "DogSelectionPerroAdu.jpg"
+  },
+  {
+    "id": 5,
+    "name": "dog selection perro cachorro x 21kg",
+    "category": "perro",
+    "price": 6200,
+    "stock": 18,
+    "img": "DogSelectionPerroCach.jpg"
+  },
+  {
+    "id": 6,
+    "name": "eukanuba perro adulto x 15kg",
+    "category": "perro",
+    "price": 6500,
+    "stock": 26,
+    "img": "EukanubaPerroAdu.jpeg"
+  },
+  {
+    "id": 7,
+    "name": "plato",
+    "category": "accesorios",
+    "price": 1000,
+    "stock": 22,
+    "img": "plato.jpg"
+  },
+  {
+    "id": 8,
+    "name": "plato grande",
+    "category": "accesorios",
+    "price": 2000,
+    "stock": 15,
+    "img": "platoGrande.jpg"
+  },
+  {
+    "id": 9,
+    "name": "premium gato adulto x 15kg",
+    "category": "gato",
+    "price": 6500,
+    "stock": 24,
+    "img": "PremiumGatoAdu.jpg"
+  },
+  {
+    "id": 10,
+    "name": "premium perro adulto x 20kg",
+    "category": "perro",
+    "price": 6500,
+    "stock": 20,
+    "img": "PremiumPerroAdu.jpg"
+  },
+  {
+    "id": 11,
+    "name": "vital can gato cachorro x 15kg",
+    "category": "gato",
+    "price": 4500,
+    "stock": 18,
+    "img": "VitalCanGatoCach.png"
+  }
+]

@@ -1,5 +1,6 @@
 import { CartWidget } from "../CartWidget";
 import logo from "./assets/logo.png";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -9,13 +10,16 @@ const NavBar = () => {
       </a>
       <ul className='categorias'>
         <li>
-          <a href=''>PERROS</a>
+          <NavLink to='/'>HOME</NavLink>
         </li>
         <li>
-          <a href=''>GATOS</a>
+          <NavLink to=''>PERROS</NavLink>
         </li>
         <li>
-          <a href=''>ACCESORIOS</a>
+          <NavLink to=''>GATOS</NavLink>
+        </li>
+        <li>
+          <NavLink to=''>ACCESORIOS</NavLink>
         </li>
       </ul>
       <CartWidget />
