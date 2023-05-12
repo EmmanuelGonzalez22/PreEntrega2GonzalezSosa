@@ -4,16 +4,8 @@ const getProducts = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(data);
-    }, 3000);
+    }, 2000);
   });
 };
 
-/* const fetchData = async () => {
-  try {
-    const response = await getProducts();
-    console.log(response);
-  } catch (error) {
-    console.log(error);
-  }
-}; */
 export { getProducts };

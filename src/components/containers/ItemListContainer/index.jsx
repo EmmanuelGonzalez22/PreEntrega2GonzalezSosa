@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../../asyncMock";
-import { ItemList } from "../../forms/ItemList";
+import { ItemList } from "../../forms";
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    getProducts()
-      .then((res) => {
-        setProducts(res);
-      })
-      .catch((err) => console.log(err));
+    async function fetchProducts() {
+      try {
+        const products = await getProducts();
+        setProducts(products);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchProducts();
   }, []);
 
   return (

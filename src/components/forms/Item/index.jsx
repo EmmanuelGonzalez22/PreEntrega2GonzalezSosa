@@ -1,20 +1,22 @@
+import { Card } from "react-bootstrap";
+
 const Item = ({ id, name, img, price, stock }) => {
   return (
-    <article>
+    <Card className='cardContainer'>
       <header>
         <h2>{name}</h2>
       </header>
-      <picture>
+      <picture className='containerImg'>
         <img src={img} alt={name} />
       </picture>
       <section>
-        <p>{price}</p>
+        <p>Precio: ${price}</p>
         <p>Stock disponible: {stock}</p>
       </section>
       <footer>
         <button>Ver detalle</button>
       </footer>
-    </article>
+    </Card>
   );
 };
 

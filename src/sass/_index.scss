@@ -3,12 +3,3 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-.greeting {
-  margin-top: 50px;
-  text-align: center;
-  @include center;
-  h1 {
-    margin: 0;
-  }
-}

@@ -10,7 +10,7 @@ const NavBar = () => {
       </a>
       <ul className='categorias'>
         <li>
-          <NavLink to='/'>HOME</NavLink>
+          <NavLink to='/'>INICIO</NavLink>
         </li>
         <li>
           <NavLink to=''>PERROS</NavLink>

@@ -2,11 +2,11 @@ import { Item } from "../Item";
 
 const ItemList = ({ products }) => {
   return (
-    <div>
+    <article className='gridProductos'>
       {products.map((product) => {
         return <Item key={product.id} {...product} />;
       })}
-    </div>
+    </article>
   );
 };
 
