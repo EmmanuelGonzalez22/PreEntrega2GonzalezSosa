@@ -1,23 +1,21 @@
 import "./sass/main.css";
-import { ItemCount, ItemListContainer, NavBar } from "./components";
+import { ItemDetailContainer, ItemListContainer, NavBar } from "./components";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <ItemListContainer greeting={"Bienvenidos a Pet´s BRC"} />
-      <ItemCount
-        stock={12}
-        initial={1}
-        onAdd={(cantidad) =>
-          console.log("Agregaste " + cantidad + " al carrito")
-        }
-      />
 
-      {/* <Routes>
-        <Route path='/' element={<ItemListContainer />} />
-      </Routes> */}
+      <Routes>
+        <Route
+          path='/'
+          element={<ItemListContainer greeting={"Bienvenidos a Pet´s BRC"} />}
+        />
+        <Route path='/item/:id' element={<ItemDetailContainer />} />
+        <Route path='/category' element={<ItemListContainer />} />
+        <Route path='/category/:category' element={<ItemListContainer />} />
+      </Routes>
     </BrowserRouter>
   );
 }

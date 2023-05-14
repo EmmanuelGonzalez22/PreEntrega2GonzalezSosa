@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Camita 40x40cm",
-    "category": "camitas",
+    "category": "accesorios",
     "price": 2200,
     "stock": 20,
     "img": "https://live.staticflickr.com/65535/52892877373_822d51c248_w.jpg"
@@ -10,7 +10,7 @@
   {
     "id": 2,
     "name": "Camita 60x50cm",
-    "category": "camitas",
+    "category": "accesorios",
     "price": 3500,
     "stock": 15,
     "img": "https://live.staticflickr.com/65535/52892887893_1d553ba5ec_w.jpg"
@@ -18,7 +18,7 @@
   {
     "id": 3,
     "name": "Camita 90x90cm",
-    "category": "camitas",
+    "category": "accesorios",
     "price": 4800,
     "stock": 23,
     "img": "https://live.staticflickr.com/65535/52892887798_823b81d152_w.jpg"

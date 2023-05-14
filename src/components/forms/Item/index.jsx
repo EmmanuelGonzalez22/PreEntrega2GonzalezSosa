@@ -1,6 +1,7 @@
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-const Item = ({ id, name, img, price, stock }) => {
+const Item = ({ id, name, img, price, category }) => {
   return (
     <Card className='cardContainer'>
       <header>
@@ -11,10 +12,10 @@ const Item = ({ id, name, img, price, stock }) => {
       </picture>
       <section>
         <p>Precio: ${price}</p>
-        <p>Stock disponible: {stock}</p>
+        <p>Categoría: {category}</p>
       </section>
       <footer>
-        <button>Ver detalle</button>
+        <Link to={`/item/${id}`}> Ver detalle</Link>
       </footer>
     </Card>
   );

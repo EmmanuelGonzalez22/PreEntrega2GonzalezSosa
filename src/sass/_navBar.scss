@@ -29,6 +29,11 @@
         transition: all 0.3s;
       }
     }
+    .active {
+      color: white;
+      text-decoration: underline;
+      pointer-events: none;
+    }
   }
 
   .cartWidget__container {
