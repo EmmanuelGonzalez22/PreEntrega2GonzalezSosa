@@ -1,12 +1,11 @@
 .greeting {
   padding-top: 50px;
   text-align: center;
-  @include center;
-  flex-direction: column;
   background-image: url("https://live.staticflickr.com/65535/52892429516_a0a31e128d_n.jpg");
   background-size: 200px;
   min-height: 100vh;
   h1 {
+    display: inline-block;
     margin: 0;
     background-color: rgba(128, 128, 128, 0.8392156863);
   }

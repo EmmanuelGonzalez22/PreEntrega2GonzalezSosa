@@ -10,24 +10,16 @@ const NavBar = () => {
       </Link>
       <ul className='categorias'>
         <li>
-          <NavLink to='/' activeClassName='active'>
-            INICIO
-          </NavLink>
+          <NavLink to='/'>INICIO</NavLink>
         </li>
         <li>
-          <NavLink to='/category/perro' activeClassName='active'>
-            PERRO
-          </NavLink>
+          <NavLink to='/category/perro'>PERRO</NavLink>
         </li>
         <li>
-          <NavLink to='/category/gato' activeClassName='active'>
-            GATO
-          </NavLink>
+          <NavLink to='/category/gato'>GATO</NavLink>
         </li>
         <li>
-          <NavLink to='/category/accesorios' activeClassName='active'>
-            ACCESORIOS
-          </NavLink>
+          <NavLink to='/category/accesorios'>ACCESORIOS</NavLink>
         </li>
       </ul>
       <CartWidget />
