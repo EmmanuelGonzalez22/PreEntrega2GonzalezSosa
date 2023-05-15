@@ -1,5 +1,6 @@
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { capitalizeFirstLetter } from "../../../functions/capitalizeLetter";
 
 const Item = ({ id, name, img, price, category }) => {
   return (
@@ -12,10 +13,13 @@ const Item = ({ id, name, img, price, category }) => {
       </picture>
       <section>
         <p>Precio: ${price}</p>
-        <p>Categoría: {category}</p>
+        <p>Categoría: {capitalizeFirstLetter(category)}</p>
       </section>
-      <footer>
-        <Link to={`/item/${id}`}> Ver detalle</Link>
+      <footer className='footerCard'>
+        <Link className='button' to={`/item/${id}`}>
+          {" "}
+          Ver producto
+        </Link>
       </footer>
     </Card>
   );

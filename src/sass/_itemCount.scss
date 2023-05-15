@@ -1,0 +1,9 @@
+.itemCount__container {
+  @include center;
+  button {
+    width: 2rem;
+  }
+  h4 {
+    width: 5rem;
+  }
+}

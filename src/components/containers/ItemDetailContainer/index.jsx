@@ -24,7 +24,9 @@ const ItemDetailContainer = () => {
   }, [id]);
 
   return (
-    <div>{item && !isLoading ? <ItemDetail item={item} /> : <Loader />}</div>
+    <main className='greeting'>
+      {item && !isLoading ? <ItemDetail item={item} /> : <Loader />}
+    </main>
   );
 };
 

@@ -34,10 +34,10 @@ const ItemListContainer = () => {
   }, [category]);
 
   return (
-    <div className='greeting'>
+    <main className='greeting'>
       <h1>{tittle}</h1>
       {isLoading ? <Loader /> : <ItemList products={products} />}
-    </div>
+    </main>
   );
 };
 
