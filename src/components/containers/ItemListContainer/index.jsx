@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../../asyncMock";
 import { useParams } from "react-router-dom";
+import { getProducts } from "../../asyncMock";
 import { capitalizeFirstLetter } from "../../../functions/capitalizeLetter";
 import { ItemList, Loader } from "../../common";
+import "./styles.scss";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);

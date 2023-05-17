@@ -1,5 +1,5 @@
-import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Card } from "react-bootstrap";
 import { capitalizeFirstLetter } from "../../../functions/capitalizeLetter";
 
 const Item = ({ id, name, img, price, category }) => {

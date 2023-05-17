@@ -1,11 +1,10 @@
-import "./sass/main.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   Footer,
   ItemDetailContainer,
   ItemListContainer,
   NavBar,
 } from "./components";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (

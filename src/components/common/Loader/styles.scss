@@ -1,29 +1,4 @@
-/* 
-.loader {
-  height: 100vh;
-  overflow: visible;
-  padding: 20px;
-  @include center;
-}
-
-.logo {
-  @include center;
-  fill: none;
-  stroke-dasharray: 20px;
-  stroke: black;
-  animation: load 7s infinite linear;
-}
-
-@keyframes load {
-  0% {
-    stroke-dashoffset: 0px;
-  }
-
-  100% {
-    stroke-dashoffset: 200px;
-  }
-}
- */
+@import "../../../sass/mixins";
 
 .loader {
   @include center;
