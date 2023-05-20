@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../../asyncMock";
-import { ItemDetail, Loader } from "../../common";
+import { ItemDetail } from "../../common";
+import { Loader } from "../../layout";
 import "./styles.scss";
 
 const ItemDetailContainer = () => {

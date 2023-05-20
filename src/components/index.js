@@ -1,2 +1,3 @@
 export { ItemListContainer, ItemDetailContainer } from "./containers";
-export { NavBar, CartWidget, Footer } from "./common";
+export { CartWidget } from "./common";
+export { Footer, Loader, NavBar } from "./layout";

@@ -2,37 +2,39 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProducts } from "../../asyncMock";
 import { capitalizeFirstLetter } from "../../../functions/capitalizeLetter";
-import { ItemList, Loader } from "../../common";
+import { Loader } from "../../layout";
+import { ItemList } from "../../common";
 import "./styles.scss";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
-  const [tittle, setTittle] = useState("Bienvenidos a Pet´s BRC");
   const [isLoading, setIsLoading] = useState(true);
-  const category = useParams().category;
+  const { category } = useParams();
 
   useEffect(() => {
-    async function fetchProducts() {
+    const fetchData = async () => {
       try {
+        setIsLoading(true);
+        const fetchedProducts = await getProducts();
+
         if (category) {
-          setIsLoading(true);
-          setTittle(capitalizeFirstLetter(category));
-          const products = await getProducts();
-          setProducts(products.filter((el) => el.category === category));
+          setProducts(fetchedProducts.filter((el) => el.category === category));
         } else {
-          setIsLoading(true);
-          setTittle("Bienvenidos a Pet´s BRC");
-          const products = await getProducts();
-          setProducts(products);
+          setProducts(fetchedProducts);
         }
       } catch (error) {
         console.error(error);
       } finally {
         setIsLoading(false);
       }
-    }
-    fetchProducts();
+    };
+
+    fetchData();
   }, [category]);
+
+  const tittle = category
+    ? capitalizeFirstLetter(category)
+    : "Bienvenidos a Pet´s BRC";
 
   return (
     <main className='greeting'>

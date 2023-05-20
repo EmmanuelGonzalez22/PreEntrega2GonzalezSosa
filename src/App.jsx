@@ -12,10 +12,7 @@ function App() {
       <NavBar />
 
       <Routes>
-        <Route
-          path='/'
-          element={<ItemListContainer greeting={"Bienvenidos a Pet´s BRC"} />}
-        />
+        <Route path='/' element={<ItemListContainer />} />
         <Route path='/item/:id' element={<ItemDetailContainer />} />
         <Route path='/category' element={<ItemListContainer />} />
         <Route path='/category/:category' element={<ItemListContainer />} />
