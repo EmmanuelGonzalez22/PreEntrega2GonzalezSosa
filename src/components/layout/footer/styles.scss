@@ -2,7 +2,7 @@
 .footer__main {
   height: 20vh;
   @include center;
-  background-color: orange;
+  background-color: $primaryColor;
   .logo__container {
     @include center;
     width: 100px;

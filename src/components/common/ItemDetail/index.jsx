@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ItemCount } from "../itemCount";
 import { useCount } from "../../../hooks/useCount";
 import { Link } from "react-router-dom";
+import "./styles.scss";
 
 const ItemDetail = ({ item }) => {
   const [stock, setStock] = useState(item.stock);
@@ -30,16 +31,17 @@ const ItemDetail = ({ item }) => {
         <p>Stock: {stock}</p>
       </section>
       <footer>
-        {quantityAdded > 0 ? (
-          <Link to='/cart'>Ir al Carrito</Link>
-        ) : (
-          <ItemCount
-            stock={stock}
-            cantidad={cantidad}
-            incrementa={incrementa}
-            resta={resta}
-            onAdd={addToCart}
-          />
+        <ItemCount
+          stock={stock}
+          cantidad={cantidad}
+          incrementa={incrementa}
+          resta={resta}
+          onAdd={addToCart}
+        />
+        {quantityAdded > 0 && (
+          <Link to='/cart' className='button'>
+            Ir al Carrito
+          </Link>
         )}
       </footer>
     </div>

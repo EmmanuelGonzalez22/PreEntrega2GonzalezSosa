@@ -5,7 +5,7 @@
   .nav {
     display: flex;
     align-items: baseline;
-    background: rgb(241, 196, 15);
+    background: $primaryColor;
     justify-content: space-between;
     padding: 10px 5%;
     position: fixed;
