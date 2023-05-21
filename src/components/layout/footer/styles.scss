@@ -1,0 +1,15 @@
+@import "../../../sass/mixins";
+.footer__main {
+  height: 20vh;
+  @include center;
+  background-color: $primaryColor;
+  .logo__container {
+    @include center;
+    width: 100px;
+    height: auto;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
