@@ -1,13 +1,21 @@
 import { useContext } from "react";
 import { ItemList } from "../../../components";
-import { CartContext } from "../../../contexts/cart";
+import { CartContext } from "../../../contexts";
 
 const CartContainer = () => {
-  const { cartList } = useContext(CartContext);
+  const { cartList, clear, totalPrice } = useContext(CartContext);
+  const total = totalPrice();
 
   return (
     <main>
-      <ItemList products={cartList} showButtonRemove={true} />
+      <ItemList products={cartList} showCartItem={true} />
+      {cartList.length > 0 && (
+        <section>
+          <p>Total: ${total}</p>
+          <button onClick={clear}>Vaciar carrito</button>
+          <button>Finalizar compra</button>
+        </section>
+      )}
     </main>
   );
 };

@@ -27,10 +27,6 @@ const ItemDetail = ({ item }) => {
   };
 
   useEffect(() => {
-    console.log(cartList);
-  }, [cartList]);
-
-  useEffect(() => {
     reset();
   }, [quantityAdded]);
 

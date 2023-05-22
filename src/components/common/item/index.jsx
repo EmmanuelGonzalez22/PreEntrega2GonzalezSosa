@@ -9,7 +9,8 @@ const Item = ({
   price,
   category,
   handleRemove,
-  showButtonRemove,
+  showCartItem,
+  quantity,
 }) => {
   return (
     <Card className='cardContainer'>
@@ -23,8 +24,15 @@ const Item = ({
         <p>Precio: ${price}</p>
         <p>Categoría: {capitalizeFirstLetter(category)}</p>
       </section>
+      {showCartItem && (
+        <section>
+          <p>
+            Cantidad de {name}: {quantity} unidades
+          </p>
+        </section>
+      )}
       <footer className='footerCard'>
-        {showButtonRemove ? (
+        {showCartItem ? (
           <button className='removeButton' onClick={handleRemove}>
             X
           </button>

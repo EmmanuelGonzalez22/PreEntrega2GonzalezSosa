@@ -1,6 +1,10 @@
 import { Item } from "../item";
+import { CartContext } from "../../../contexts";
+import { useContext } from "react";
 
-const ItemList = ({ products, showButtonRemove }) => {
+const ItemList = ({ products, showCartItem }) => {
+  const { removeItem } = useContext(CartContext);
+
   return (
     <article className='gridProductos'>
       {products.map((product) => {
@@ -8,7 +12,10 @@ const ItemList = ({ products, showButtonRemove }) => {
           <Item
             key={product.id}
             {...product}
-            showButtonRemove={showButtonRemove}
+            showCartItem={showCartItem}
+            handleRemove={() => {
+              removeItem(product.id);
+            }}
           />
         );
       })}
