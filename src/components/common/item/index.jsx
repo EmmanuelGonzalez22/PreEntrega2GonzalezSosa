@@ -22,13 +22,14 @@ const Item = ({
       </picture>
       <section>
         <p>Precio: ${price}</p>
-        <p>Categoría: {capitalizeFirstLetter(category)}</p>
+        {!showCartItem && <p>Categoría: {capitalizeFirstLetter(category)}</p>}
       </section>
       {showCartItem && (
         <section>
           <p>
             Cantidad de {name}: {quantity} unidades
           </p>
+          <p>Subtotal: ${price * quantity}</p>
         </section>
       )}
       <footer className='footerCard'>
