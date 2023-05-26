@@ -1,1 +1,5 @@
 @import "../../../sass/mixins";
+main {
+  @include center;
+  flex-direction: column;
+}

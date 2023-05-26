@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
+  CartContainer,
   Footer,
   ItemDetailContainer,
   ItemListContainer,
   NavBar,
 } from "./components";
 import { CartProvider } from "./contexts";
-import { CartContainer } from "./components/containers";
 
 function App() {
   return (

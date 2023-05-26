@@ -7,7 +7,8 @@ const Item = ({
   name,
   img,
   price,
-  category,
+  description,
+  categoryId,
   handleRemove,
   showCartItem,
   quantity,
@@ -22,7 +23,8 @@ const Item = ({
       </picture>
       <section>
         <p>Precio: ${price}</p>
-        {!showCartItem && <p>Categoría: {capitalizeFirstLetter(category)}</p>}
+        {/*   {!showCartItem && <p>Categoría: {capitalizeFirstLetter(categoryId)}</p>} */}
+        {showCartItem && <p>Descripción: {description}</p>}
       </section>
       {showCartItem && (
         <section>
