@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProducts } from "../../asyncMock";
-import { getFirestore, getDocs, collection } from "firebase/firestore";
+import { getFirestore, getDocs, collection, getDoc } from "firebase/firestore";
 import { capitalizeFirstLetter } from "../../../functions/capitalizeLetter";
 import { Loader, ItemList } from "../../../components";
 import "./styles.scss";
@@ -37,21 +36,47 @@ const ItemListContainer = () => {
     : "Bienvenidos a Pet´s BRC";
 
   /* ----------------------- LOGICA PARA TRAER PRODUCTOS DE FIREBASE ----------------------- */
+
   useEffect(() => {
-    const db = getFirestore();
-    const productsCollection = collection(db, "products");
-    getDocs(productsCollection).then((querySnapshot) => {
-      setProducts(
-        querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
-      );
-      if (querySnapshot.size > 0) {
+    const fetchProducts = async () => {
+      try {
+        setIsLoading(true);
+        const db = getFirestore();
+        const productsRef = collection(db, "products");
+        const querySnapshot = await getDocs(productsRef);
+
+        if (querySnapshot.size > 0) {
+          const productsCollection = querySnapshot.docs.map(async (doc) => {
+            const data = doc.data();
+            const categorySnapshot = await getDoc(data.categoryId);
+
+            if (categorySnapshot.exists()) {
+              const categoryName = categorySnapshot.data().name;
+              data.categoryId = categoryName;
+            }
+            return { id: doc.id, ...data };
+          });
+
+          if (category) {
+            const filteredProducts = await Promise.all(productsCollection);
+            setProducts(
+              filteredProducts.filter((el) => el.categoryId === category)
+            );
+          } else {
+            setProducts(await Promise.all(productsCollection));
+          }
+        }
+      } catch (error) {
+        console.error("Error al obtener los productos:", error);
+      } finally {
         setIsLoading(false);
       }
-    });
-  }, []);
+    };
 
-  console.log(products[0]);
+    fetchProducts();
+  }, [category]);
 
+  /* COMPONENTE JSX */
   if (!products) return <h2>No hay productos</h2>;
 
   return (

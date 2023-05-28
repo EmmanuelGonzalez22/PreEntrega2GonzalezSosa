@@ -1,14 +1,14 @@
 import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../../contexts";
 import { ItemCount } from "../../../components";
 import { useCount } from "../../../hooks";
-import { CartContext } from "../../../contexts";
 import "./styles.scss";
 
 const ItemDetail = ({ item }) => {
-  const { id, name, price, stock, img, category } = item;
+  const { id, name, price, stock, img, category, description } = item;
 
-  const { addItem, cartList } = useContext(CartContext);
+  const { addItem } = useContext(CartContext);
   const [quantityAdded, setQuantityAdded] = useState(0);
   const { cantidad, resta, incrementa, reset } = useCount(1, 1, stock);
 
@@ -28,6 +28,7 @@ const ItemDetail = ({ item }) => {
 
   useEffect(() => {
     reset();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quantityAdded]);
 
   return (
@@ -37,10 +38,11 @@ const ItemDetail = ({ item }) => {
           <img src={img} alt={name} />
         </picture>
         <h4>{name}</h4>
+        <p>{description}</p>
       </header>
       <section>
-        <p>Precio: ${price}</p>
-        <p>Stock: {stock}</p>
+        <h5>Precio: ${price}</h5>
+        <h5>Stock: {stock}</h5>
       </section>
       <footer>
         <ItemCount

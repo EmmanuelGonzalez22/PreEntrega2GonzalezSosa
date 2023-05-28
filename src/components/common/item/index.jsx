@@ -22,16 +22,15 @@ const Item = ({
         <img src={img} alt={name} />
       </picture>
       <section>
-        <p>Precio: ${price}</p>
-        {/*   {!showCartItem && <p>Categoría: {capitalizeFirstLetter(categoryId)}</p>} */}
-        {showCartItem && <p>Descripción: {description}</p>}
+        <h5>Precio: ${price}</h5>
+        {!showCartItem && <p>Categoría: {capitalizeFirstLetter(categoryId)}</p>}
       </section>
       {showCartItem && (
         <section>
-          <p>
+          <h5>
             Cantidad de {name}: {quantity} unidades
-          </p>
-          <p>Subtotal: ${price * quantity}</p>
+          </h5>
+          <h4>Subtotal: ${price * quantity}</h4>
         </section>
       )}
       <footer className='footerCard'>
