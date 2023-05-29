@@ -6,7 +6,7 @@ const ItemList = ({ products, showCartItem }) => {
   const { removeItem } = useContext(CartContext);
 
   return (
-    <article className='gridProductos'>
+    <section className='gridProductos'>
       {products.map((product) => {
         return (
           <Item
@@ -19,7 +19,7 @@ const ItemList = ({ products, showCartItem }) => {
           />
         );
       })}
-    </article>
+    </section>
   );
 };
 

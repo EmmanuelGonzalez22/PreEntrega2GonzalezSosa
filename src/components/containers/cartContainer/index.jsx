@@ -10,7 +10,7 @@ const CartContainer = () => {
 
   if (cartList.length === 0)
     return (
-      <main>
+      <main className='container cart__main'>
         <h2>No hay productos en el carrito</h2>
         <Link to='/' className='btn btn-dark'>
           Ver más productos
@@ -19,7 +19,8 @@ const CartContainer = () => {
     );
 
   return (
-    <main>
+    <main className='container cart__main'>
+      <h1 className='cart__title'>Carrito</h1>
       <ItemList products={cartList} showCartItem={true} />
       <section>
         <h3>Total: ${total}</h3>

@@ -48,7 +48,7 @@ const ItemDetailContainer = () => {
 
   /* COMPONENTE JSX */
   return (
-    <main className='greeting'>
+    <main className='main container'>
       {item && !isLoading ? <ItemDetail item={item} /> : <Loader />}
     </main>
   );

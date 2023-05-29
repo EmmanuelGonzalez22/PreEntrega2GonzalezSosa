@@ -31,7 +31,7 @@ const ItemListContainer = () => {
     fetchData();
   }, [category]); */
 
-  const tittle = category
+  const title = category
     ? capitalizeFirstLetter(category)
     : "Bienvenidos a Pet´s BRC";
 
@@ -77,11 +77,16 @@ const ItemListContainer = () => {
   }, [category]);
 
   /* COMPONENTE JSX */
-  if (!products) return <h2>No hay productos</h2>;
+  if (!products)
+    return (
+      <main className='main container'>
+        <h2>No hay productos</h2>
+      </main>
+    );
 
   return (
-    <main className='greeting'>
-      <h1>{tittle}</h1>
+    <main className='main container'>
+      <h1 className='main__title'>{title}</h1>
       {isLoading ? <Loader /> : <ItemList products={products} />}
     </main>
   );

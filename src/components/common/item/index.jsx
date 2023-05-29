@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Card } from "react-bootstrap";
 import { capitalizeFirstLetter } from "../../../functions/capitalizeLetter";
 
 const Item = ({
@@ -7,23 +6,23 @@ const Item = ({
   name,
   img,
   price,
-  description,
-  categoryId,
   handleRemove,
   showCartItem,
   quantity,
 }) => {
   return (
-    <Card className='cardContainer'>
+    <article
+      className='cardContainer cardUi'
+      style={{ backgroundImage: `url(${img})` }}
+    >
       <header>
-        <h2>{name}</h2>
+        <h2>{capitalizeFirstLetter(name)}</h2>
       </header>
-      <picture className='containerImg'>
+      <div className='containerImg'>
         <img src={img} alt={name} />
-      </picture>
+      </div>
       <section>
         <h5>Precio: ${price}</h5>
-        {!showCartItem && <p>Categoría: {capitalizeFirstLetter(categoryId)}</p>}
       </section>
       {showCartItem && (
         <section>
@@ -45,7 +44,7 @@ const Item = ({
           </Link>
         )}
       </footer>
-    </Card>
+    </article>
   );
 };
 

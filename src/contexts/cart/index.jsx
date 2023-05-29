@@ -15,17 +15,14 @@ const CartProvider = ({ children }) => {
 
   /* AGREGAR ITEM AL CARRITO */
   const addItem = (itemCart, quantity) => {
-    //valido si el producto ya existe en el carrito
-    const isInCart = cartList.find((el) => el.id === itemCart.id);
+    //busco el indice del producto en el carrito
+    const index = cartList.findIndex((el) => el.id === itemCart.id);
 
-    if (isInCart) {
+    if (index !== -1) {
       //si ya existe en el carrito, aumenta la propiedad quantity del producto
-      const cartUpdate = cartList.map((el) => {
-        if (el.id === isInCart.id) {
-          return { ...el, quantity: el.quantity + quantity };
-        } else return el;
-      });
-      setCartList(cartUpdate);
+      const newCartList = [...cartList];
+      newCartList[index].quantity += quantity;
+      setCartList(newCartList);
     }
     //sino existe, agrego el nuevo producto al array
     else {
@@ -51,6 +48,7 @@ const CartProvider = ({ children }) => {
     );
   };
 
+  /* CALCULA CANTIDAD DE PRODUCTOS EN EL CARRITO */
   const totalItems = () => {
     return cartList.reduce((acc, producto) => acc + producto.quantity, 0);
   };

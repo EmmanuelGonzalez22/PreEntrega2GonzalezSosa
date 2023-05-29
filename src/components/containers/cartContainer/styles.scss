@@ -1,5 +1,15 @@
 @import "../../../sass/mixins";
-main {
+.cart__main {
   @include center;
   flex-direction: column;
+  min-height: 100vh;
+  padding: 50px 0;
+  .cart__title {
+    display: inline-block;
+    margin: 0 0 30px;
+    background-color: #fff;
+    padding: 0 6rem;
+    border: 1px solid black;
+    border-radius: 25px;
+  }
 }

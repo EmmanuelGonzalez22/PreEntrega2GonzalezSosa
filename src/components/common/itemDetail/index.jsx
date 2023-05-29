@@ -34,9 +34,9 @@ const ItemDetail = ({ item }) => {
   return (
     <div className='itemDetail__container'>
       <header>
-        <picture>
+        <div>
           <img src={img} alt={name} />
-        </picture>
+        </div>
         <h4>{name}</h4>
         <p>{description}</p>
       </header>
