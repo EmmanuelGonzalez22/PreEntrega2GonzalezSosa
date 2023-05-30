@@ -11,17 +11,20 @@ const Item = ({
   quantity,
 }) => {
   return (
-    <article
-      className='cardContainer cardUi'
-      style={{ backgroundImage: `url(${img})` }}
-    >
+    <article className={!showCartItem ? "cardUi" : "CardCart"}>
+      {!showCartItem && (
+        <div
+          className='background-img'
+          style={{ backgroundImage: `url(${img})` }}
+        ></div>
+      )}
       <header>
         <h2>{capitalizeFirstLetter(name)}</h2>
       </header>
-      <div className='containerImg'>
+      <div className={!showCartItem ? "container__img" : "containerCart__img"}>
         <img src={img} alt={name} />
       </div>
-      <section>
+      <section className={!showCartItem ? "card__price" : "cardCart__price"}>
         <h5>Precio: ${price}</h5>
       </section>
       {showCartItem && (
@@ -32,7 +35,7 @@ const Item = ({
           <h4>Subtotal: ${price * quantity}</h4>
         </section>
       )}
-      <footer className='footerCard'>
+      <footer className={!showCartItem ? "card__footer" : "cardCart__footer"}>
         {showCartItem ? (
           <button className='removeButton' onClick={handleRemove}>
             X

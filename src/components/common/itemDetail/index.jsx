@@ -32,19 +32,20 @@ const ItemDetail = ({ item }) => {
   }, [quantityAdded]);
 
   return (
-    <div className='itemDetail__container'>
+    <article className='itemDetail__container'>
       <header>
         <div>
           <img src={img} alt={name} />
         </div>
         <h4>{name}</h4>
-        <p>{description}</p>
       </header>
-      <section>
-        <h5>Precio: ${price}</h5>
-        <h5>Stock: {stock}</h5>
+      <section className='price__section'>
+        <h5 className='fw-bold'>${price} con tarjeta</h5>
+        <h5 className='fw-bold'>
+          <span className='red'>${price * 0.9}</span> en efectivo
+        </h5>
       </section>
-      <footer>
+      <section className='count__section'>
         <ItemCount
           stock={stock}
           cantidad={cantidad}
@@ -57,8 +58,11 @@ const ItemDetail = ({ item }) => {
             Ir al Carrito
           </Link>
         )}
+      </section>
+      <footer>
+        <p>{description}</p>
       </footer>
-    </div>
+    </article>
   );
 };
 export { ItemDetail };

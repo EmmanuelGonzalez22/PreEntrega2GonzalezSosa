@@ -1,9 +1,9 @@
 @import "../../../sass/mixins";
 
 .main {
-  padding: 50px 0;
   text-align: center;
   min-height: 100vh;
+  margin-bottom: 8vh;
   .main__title {
     display: inline-block;
     margin: 0;
@@ -24,47 +24,56 @@
 }
 
 .cardUi {
-  width: 260px;
-  height: 190px;
-  background: rgba(198, 198, 198, 0.34);
+  width: 290px;
+  height: 250px;
+  background: rgba(114, 114, 114, 0.34);
   border-radius: 8px;
   backdrop-filter: blur(5px);
   border-bottom: 3px solid rgba(255, 255, 255, 0.44);
   border-left: 2px rgba(255, 255, 255, 0.545) outset;
   box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.28);
   transform: skewX(10deg);
-  transition: 0.4s;
+  transition: 0.5s;
   overflow: hidden;
   color: white;
   margin-bottom: 50px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  div img {
-    visibility: hidden;
-  }
-  /* div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    z-index: -1;
+    background-position: bottom;
+    background-size: 60%;
+    background-repeat: no-repeat;
+  }
+  .container__img {
+    height: 100%;
     img {
-      width: 35%;
+      width: 0;
       height: auto;
     }
-  } */
+  }
+  .card__price {
+    display: none;
+    h5 {
+      text-align: center;
+      font-size: 1.2rem;
+      color: black;
+      /*      text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573); */
+    }
+  }
   h2 {
     text-align: center;
     margin: 1.3rem;
     font-size: 1.5rem;
     color: black;
-    text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
+    /*     text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573); */
   }
-  h5 {
-    text-align: center;
-    font-size: 1rem;
-    color: black;
-    text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
+  .card__footer {
+    display: none;
   }
 
   &:hover {
@@ -73,12 +82,22 @@
     flex-direction: column;
     height: 550px;
     transform: skew(0deg);
-    background-image: none !important;
-    img {
-      width: 100%;
-      object-fit: cover;
-      transition: all 0.4s ease-in-out;
-      visibility: visible;
+    .background-img {
+      background-image: none !important;
+    }
+    .container__img {
+      height: auto;
+      img {
+        width: 100%;
+        object-fit: cover;
+        transition: all 1s ease-in-out;
+        visibility: visible;
+        rotate: 360deg;
+      }
+    }
+    .card__price,
+    .card__footer {
+      display: block;
     }
   }
 }
