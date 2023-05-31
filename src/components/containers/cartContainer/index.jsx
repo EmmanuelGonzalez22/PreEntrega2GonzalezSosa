@@ -12,7 +12,7 @@ const CartContainer = () => {
     return (
       <main className='container cart__main'>
         <h2>No hay productos en el carrito</h2>
-        <Link to='/' className='btn btn-dark'>
+        <Link to='/' className='button'>
           Ver más productos
         </Link>
       </main>
@@ -24,8 +24,12 @@ const CartContainer = () => {
       <ItemList products={cartList} showCartItem={true} />
       <section>
         <h3>Total: ${total}</h3>
-        <button onClick={clear}>Vaciar carrito</button>
-        <button>Finalizar compra</button>
+        <button onClick={clear} className='button'>
+          Vaciar carrito
+        </button>
+        <Link to='/check-out' className='button'>
+          Finalizar compra
+        </Link>
       </section>
     </main>
   );

@@ -4,10 +4,12 @@ import { getFirestore, getDocs, collection, getDoc } from "firebase/firestore";
 import { capitalizeFirstLetter } from "../../../functions/capitalizeLetter";
 import { Loader, ItemList } from "../../../components";
 import "./styles.scss";
+import { fetchProducts } from "../../services/products";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [msg, setMsg] = useState("No hay productos");
   const { category } = useParams();
 
   /* ----------------------- LOGICA PARA TRAER PRODUCTOS DEL ASYNCMOCK ----------------------- */
@@ -67,7 +69,7 @@ const ItemListContainer = () => {
           }
         }
       } catch (error) {
-        console.error("Error al obtener los productos:", error);
+        setMsg("Error al obtener los productos:", error);
       } finally {
         setIsLoading(false);
       }
@@ -80,7 +82,7 @@ const ItemListContainer = () => {
   if (!products)
     return (
       <main className='main container'>
-        <h2>No hay productos</h2>
+        <h2>{msg}</h2>
       </main>
     );
 
