@@ -1,9 +1,17 @@
 import { Link, NavLink } from "react-router-dom";
+import { useEffect } from "react";
 import { CartWidget } from "../../../components";
+import { useServices } from "../../../hooks";
 import logo from "../../../assets/img/logo.png";
 import "./styles.scss";
 
 const NavBar = () => {
+  const { categories, loadCategories } = useServices();
+
+  useEffect(() => {
+    loadCategories();
+  }, []);
+
   return (
     <header className='header__main'>
       <nav className='nav'>
@@ -14,15 +22,15 @@ const NavBar = () => {
           <li>
             <NavLink to='/'>INICIO</NavLink>
           </li>
-          <li>
-            <NavLink to='/category/perro'>PERRO</NavLink>
-          </li>
-          <li>
-            <NavLink to='/category/gato'>GATO</NavLink>
-          </li>
-          <li>
-            <NavLink to='/category/accesorios'>ACCESORIOS</NavLink>
-          </li>
+          {categories.map((category) => {
+            return (
+              <li key={category.id}>
+                <NavLink to={`/category/${category.name}`}>
+                  {category.name.toUpperCase()}
+                </NavLink>
+              </li>
+            );
+          })}
         </ul>
         <CartWidget />
       </nav>

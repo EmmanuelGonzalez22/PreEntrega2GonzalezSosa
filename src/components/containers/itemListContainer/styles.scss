@@ -35,7 +35,6 @@
   transform: skewX(10deg);
   transition: 0.5s;
   overflow: hidden;
-  color: white;
   margin-bottom: 50px;
   .background-img {
     position: absolute;
@@ -62,7 +61,6 @@
       text-align: center;
       font-size: 1.2rem;
       color: black;
-      /*      text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573); */
     }
   }
   h2 {
@@ -70,7 +68,6 @@
     margin: 1.3rem;
     font-size: 1.5rem;
     color: black;
-    /*     text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573); */
   }
   .card__footer {
     display: none;

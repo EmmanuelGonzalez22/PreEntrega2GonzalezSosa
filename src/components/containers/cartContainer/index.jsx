@@ -1,11 +1,10 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../../contexts";
+import { useCart } from "../../../hooks";
 import { ItemList } from "../../../components";
 import "./styles.scss";
 
 const CartContainer = () => {
-  const { cartList, clear, totalPrice } = useContext(CartContext);
+  const { cartList, clear, totalPrice } = useCart();
   const total = totalPrice();
 
   if (cartList.length === 0)

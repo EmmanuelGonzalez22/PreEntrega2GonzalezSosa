@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { CartContext } from "../../../contexts";
+import { useCart } from "../../../hooks";
 import { Item } from "../item";
 
 const ItemList = ({ products, showCartItem }) => {
-  const { removeItem } = useContext(CartContext);
+  const { removeItem } = useCart();
 
   return (
     <section className='gridProductos'>

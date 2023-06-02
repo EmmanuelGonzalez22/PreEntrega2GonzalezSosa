@@ -1,14 +1,13 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../../contexts";
 import { ItemCount } from "../../../components";
-import { useCount } from "../../../hooks";
+import { useCount, useCart } from "../../../hooks";
 import "./styles.scss";
 
 const ItemDetail = ({ item }) => {
   const { id, name, price, stock, img, category, description } = item;
 
-  const { addItem } = useContext(CartContext);
+  const { addItem } = useCart();
   const [quantityAdded, setQuantityAdded] = useState(0);
   const { cantidad, resta, incrementa, reset } = useCount(1, 1, stock);
 

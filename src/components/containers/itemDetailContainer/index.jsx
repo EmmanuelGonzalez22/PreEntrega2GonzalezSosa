@@ -1,18 +1,12 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import { ItemDetail, Loader } from "../../../components";
-import { fetchProductById } from "../../services/products";
+import { useServices } from "../../../hooks";
 
 const ItemDetailContainer = () => {
-  const [item, setItem] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
-  const { id } = useParams();
-
-  /* ----------------------- LOGICA PARA TRAER PRODUCTOS DE FIREBASE ----------------------- */
+  const { item, error, isLoading, msg, id, loadProduct } = useServices();
 
   useEffect(() => {
-    fetchProductById(id, setItem, setIsLoading, setError);
+    loadProduct();
   }, [id]);
 
   /* COMPONENTE JSX */
@@ -28,7 +22,7 @@ const ItemDetailContainer = () => {
   if (!item && !isLoading) {
     return (
       <main className='main container'>
-        <h2>"No hay productos"</h2>
+        <h2>{msg}</h2>
       </main>
     );
   }

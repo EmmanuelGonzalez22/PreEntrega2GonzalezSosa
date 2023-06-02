@@ -1,11 +1,10 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../../contexts";
+import { useCart } from "../../../hooks";
 import cart from "./assets/cart.svg";
 import "./styles.scss";
 
 const CartWidget = () => {
-  const { totalItems } = useContext(CartContext);
+  const { totalItems } = useCart();
   const cartItems = totalItems();
 
   return (

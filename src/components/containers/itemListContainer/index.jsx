@@ -1,23 +1,14 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { fetchProducts } from "../../services/products";
-import { capitalizeFirstLetter } from "../../../functions/capitalizeLetter";
+import { useEffect } from "react";
 import { Loader, ItemList } from "../../../components";
+import { useServices } from "../../../hooks";
 import "./styles.scss";
 
 const ItemListContainer = () => {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
-  const { category } = useParams();
+  const { error, isLoading, products, msg, category, loadProducts } =
+    useServices();
 
-  const title = category
-    ? capitalizeFirstLetter(category)
-    : "Bienvenidos a Pet´s BRC";
-
-  /* ----------------------- TRAIGO PRODUCTOS DE FIREBASE ----------------------- */
   useEffect(() => {
-    fetchProducts(category, setIsLoading, setProducts, setError);
+    loadProducts();
   }, [category]);
 
   /* COMPONENTE JSX */
@@ -28,17 +19,18 @@ const ItemListContainer = () => {
       </main>
     );
 
-  if (!products && !isLoading)
+  if (products.length === 0 && !isLoading)
     return (
       <main className='main container'>
-        <h2>"No hay productos"</h2>
+        <h2>{msg}</h2>
       </main>
     );
 
   return (
     <main className='main container'>
-      <h1 className='main__title'>{title}</h1>
-      {isLoading ? <Loader /> : <ItemList products={products} />}
+      {isLoading && <Loader />}
+      <h1 className='main__title'>{msg}</h1>
+      <ItemList products={products} />
     </main>
   );
 };
