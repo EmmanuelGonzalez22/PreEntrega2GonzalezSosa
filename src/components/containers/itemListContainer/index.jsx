@@ -15,22 +15,27 @@ const ItemListContainer = () => {
   if (error)
     return (
       <main className='main container'>
-        <h2>{error}</h2>
+        <h2 className='main__title'>{error}</h2>
       </main>
     );
 
   if (products.length === 0 && !isLoading)
     return (
       <main className='main container'>
-        <h2>{msg}</h2>
+        <h2 className='main__title'>{msg}</h2>
       </main>
     );
 
   return (
     <main className='main container'>
-      {isLoading && <Loader />}
-      <h1 className='main__title'>{msg}</h1>
-      <ItemList products={products} />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <h1 className='main__title'>{msg}</h1>
+          <ItemList products={products} />
+        </>
+      )}
     </main>
   );
 };

@@ -1,3 +1,4 @@
+import { db } from "./firebaseConfig";
 import {
   collection,
   getDocs,
@@ -9,22 +10,28 @@ import {
 } from "firebase/firestore";
 import { capitalizeFirstLetter } from "../functions/capitalizeLetter";
 
+// referencias a las colecciones de firebase
+const productsRef = collection(db, "products");
+const categoriesRef = collection(db, "categories");
+
 /* ------------------ LOGICA PARA TRAER COLECCION DE PRODUCTOS ------------------ */
 
 const fetchProducts = async (category) => {
-  const db = getFirestore();
-  const productsRef = collection(db, "products");
-  let queryRef = productsRef;
+  let productsQuery = productsRef;
 
   try {
     if (category) {
-      const categoriesRef = collection(db, "categories");
       const categoryQuery = query(categoriesRef, where("name", "==", category));
       const categorySnapshot = await getDocs(categoryQuery);
 
-      if (!categorySnapshot.empty) {
-        const categoryId = categorySnapshot.docs[0].ref;
-        queryRef = query(productsRef, where("categoryId", "==", categoryId));
+      const { docs, empty } = categorySnapshot;
+
+      if (!empty) {
+        const categoryId = docs[0].ref;
+        productsQuery = query(
+          productsRef,
+          where("categoryId", "==", categoryId)
+        );
       } else {
         return {
           products: [],
@@ -33,7 +40,7 @@ const fetchProducts = async (category) => {
       }
     }
 
-    const querySnapshot = await getDocs(queryRef);
+    const querySnapshot = await getDocs(productsQuery);
     const productsCollection = querySnapshot.docs.map((doc) => {
       const data = doc.data();
       return { id: doc.id, ...data };
@@ -48,7 +55,7 @@ const fetchProducts = async (category) => {
   } catch (error) {
     return {
       products: null,
-      message: "Error al obtener los productos: " + error.message,
+      message: "Error al obtener los productos: " + error,
     };
   }
 };
@@ -71,16 +78,13 @@ const fetchProductById = async (id) => {
     };
     return { item, message: true };
   } catch (error) {
-    return { item: null, message: "Error al obtener el producto" };
+    return { item: null, message: "Error al obtener el producto: " + error };
   }
 };
 
 /* ------------------ LOGICA PARA TRAER LAS CATEGORIAS ------------------ */
 
 const fetchCategories = async () => {
-  const db = getFirestore();
-  const categoriesRef = collection(db, "categories");
-
   try {
     const querySnapshot = await getDocs(categoriesRef);
     const categoriesCollection = querySnapshot.docs.map((doc) => {
@@ -92,7 +96,7 @@ const fetchCategories = async () => {
   } catch (error) {
     return {
       categories: null,
-      error: "Error al obtener las categorías: " + error.message,
+      message: "Error al obtener las categorías: " + error,
     };
   }
 };

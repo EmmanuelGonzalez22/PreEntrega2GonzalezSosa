@@ -24,7 +24,7 @@ const useServices = () => {
         setCategories(categories);
       }
     } catch (error) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
 
@@ -32,9 +32,9 @@ const useServices = () => {
   const loadProducts = async () => {
     setIsLoading(true);
     try {
-      const data = await fetchProducts(category);
-      setProducts(data.products);
-      setMsg(data.message);
+      const productData = await fetchProducts(category);
+      setProducts(productData.products);
+      setMsg(productData.message);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -45,11 +45,11 @@ const useServices = () => {
   /* CARGA PRODUCTO POR ID */
   const loadProduct = async () => {
     try {
-      const response = await fetchProductById(id);
-      if (!response.message) {
+      const productResponse = await fetchProductById(id);
+      if (!productResponse.message) {
         setMsg("No se encontró el producto");
       } else {
-        setItem(response.item);
+        setItem(productResponse.item);
       }
     } catch (error) {
       setError(error.message);
