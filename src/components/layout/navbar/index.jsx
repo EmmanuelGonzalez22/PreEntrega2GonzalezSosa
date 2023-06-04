@@ -10,8 +10,10 @@ const NavBar = () => {
 
   useEffect(() => {
     loadCategories();
+    // eslint-disable-next-line
   }, []);
 
+  /* COMPONENTE JSX */
   return (
     <header className='header__main'>
       <nav className='nav'>

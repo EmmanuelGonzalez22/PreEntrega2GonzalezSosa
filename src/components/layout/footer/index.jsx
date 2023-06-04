@@ -7,40 +7,48 @@ const Footer = () => {
 
   return (
     <footer className='footer__main'>
-      <Link to='/' className='logo__container'>
-        <img src={logo} alt='logo' />
-      </Link>
-      <section>
-        <h4>© {currentYear} - Todos los derechos reservados</h4>
+      <section className='footer__section section__copyright'>
+        <Link to='/' className='logo__container'>
+          <img src={logo} alt='logo' />
+        </Link>
+        <h4 className='section__title'>
+          © {currentYear} - Todos los derechos reservados
+        </h4>
       </section>
       <section className='footer__section'>
-        <h4>Contáctanos</h4>
-        <ul>
-          <li>Teléfono:</li>
-          <li>Email:</li>
-          <li>Dirección:</li>
+        <h4 className='section__title'>Contáctanos</h4>
+        <ul className='section__list__title'>
+          <li className='section__list__item'>
+            <span className='fw-bold'>- Teléfono:</span> 2944-526489
+          </li>
+          <li className='section__list__item'>
+            <span className='fw-bold'>- Email:</span> info@petsbrc.com
+          </li>
+          <li className='section__list__item'>
+            <span className='fw-bold'>- Dirección:</span> Tiscornia 943
+          </li>
         </ul>
       </section>
       <section className='footer__section'>
-        <h4>Medios de pago</h4>
-        <ul>
-          <li>Visa</li>
-          <li>Mastercard</li>
-          <li>American Express</li>
+        <h4 className='section__title'>Medios de pago</h4>
+        <ul className='section__list__title'>
+          <li className='section__list__item'>- Visa</li>
+          <li className='section__list__item'>- Mastercard</li>
+          <li className='section__list__item'>- American Express</li>
         </ul>
       </section>
       <section className='footer__section'>
-        <h4>Envíos</h4>
-        <ul>
-          <li>Envíos a todo el país</li>
-          <li>Retiro en sucursal</li>
+        <h4 className='section__title'>Envíos</h4>
+        <ul className='section__list__title'>
+          <li className='section__list__item'>- Envíos a todo el país</li>
+          <li className='section__list__item'>- Retiro en sucursal</li>
         </ul>
       </section>
       <section className='footer__section'>
-        <h4>Horarios</h4>
-        <ul>
-          <li>Lunes a viernes de 9 a 18hs</li>
-          <li>Sábados de 9 a 13hs</li>
+        <h4 className='section__title'>Horarios</h4>
+        <ul className='section__list__title'>
+          <li className='section__list__item'>- Lunes a viernes de 9 a 18hs</li>
+          <li className='section__list__item'>- Sábados de 9 a 13hs</li>
         </ul>
       </section>
     </footer>

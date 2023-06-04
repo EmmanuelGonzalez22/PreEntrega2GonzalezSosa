@@ -7,7 +7,7 @@ import "./styles.scss";
 const ItemDetail = ({ item }) => {
   const { id, name, price, stock, img, category, description } = item;
 
-  const { addItem } = useCart();
+  const { addItem, cartList } = useCart();
   const [quantityAdded, setQuantityAdded] = useState(0);
   const { cantidad, resta, incrementa, reset } = useCount(1, 1, stock);
 
@@ -33,14 +33,16 @@ const ItemDetail = ({ item }) => {
   return (
     <article className='itemDetail__container'>
       <header>
+        <h4 className='fw-bold'>{name.toUpperCase()}</h4>
         <div>
           <img src={img} alt={name} />
         </div>
-        <h4>{name}</h4>
       </header>
       <section className='price__section'>
-        <h5 className='fw-bold'>${price} con tarjeta</h5>
-        <h5 className='fw-bold'>
+        <h5 className='price__card'>
+          <span>${price}</span> con tarjeta
+        </h5>
+        <h5 className='price__cash'>
           <span className='red'>${price * 0.9}</span> en efectivo
         </h5>
       </section>
@@ -52,7 +54,7 @@ const ItemDetail = ({ item }) => {
           resta={resta}
           onAdd={addToCart}
         />
-        {quantityAdded > 0 && (
+        {cartList.length > 0 && (
           <Link to='/cart' className='button'>
             Ir al Carrito
           </Link>

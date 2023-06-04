@@ -7,6 +7,7 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     loadProduct();
+    // eslint-disable-next-line
   }, [id]);
 
   /* COMPONENTE JSX */

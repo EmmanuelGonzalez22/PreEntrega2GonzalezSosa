@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { db } from "../../services/firebaseConfig";
 import { addDoc, collection } from "firebase/firestore";
-import { useCart } from "../../hooks";
+import { useCart, useServices } from "../../hooks";
 
 const useSales = () => {
   const sales = collection(db, "sales");
   const { cartList, totalPrice, clear } = useCart();
+  const { setIsLoading, isLoading } = useServices();
   const [saleId, setSaleId] = useState("");
 
   const enviar = async (data) => {
@@ -27,15 +28,18 @@ const useSales = () => {
     };
 
     try {
+      setIsLoading(true);
       const salesRef = await addDoc(sales, newOrder);
       setSaleId(salesRef.id);
       clear();
     } catch (e) {
       console.error("Error al realizar la compra: ", e);
       setSaleId("error");
+    } finally {
+      setIsLoading(false);
     }
   };
-  return { enviar, saleId };
+  return { enviar, saleId, isLoading };
 };
 
 export { useSales };

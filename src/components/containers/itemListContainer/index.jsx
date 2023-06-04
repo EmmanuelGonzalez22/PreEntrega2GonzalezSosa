@@ -9,6 +9,7 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     loadProducts();
+    // eslint-disable-next-line
   }, [category]);
 
   /* COMPONENTE JSX */

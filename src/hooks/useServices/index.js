@@ -9,7 +9,7 @@ import {
 const useServices = () => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [msg, setMsg] = useState("Bienvenidos a Pet´s BRC");
   const [item, setItem] = useState(null);
@@ -44,6 +44,7 @@ const useServices = () => {
 
   /* CARGA PRODUCTO POR ID */
   const loadProduct = async () => {
+    setIsLoading(true);
     try {
       const productResponse = await fetchProductById(id);
       if (!productResponse.message) {
@@ -62,6 +63,7 @@ const useServices = () => {
     categories,
     products,
     isLoading,
+    setIsLoading,
     error,
     msg,
     item,
