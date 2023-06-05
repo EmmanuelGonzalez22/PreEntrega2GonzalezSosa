@@ -3,27 +3,37 @@
   @include center;
   flex-direction: column;
   gap: 3rem;
+  .border__gradient {
+    width: 459px;
+    border-width: 3px;
+    background-image: linear-gradient(45deg, #ff0000, #ffb700);
+    border-radius: 2.7em;
+    height: 100%;
+  }
   .form {
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    background-image: linear-gradient(45deg, #330808, #3a2c09);
-    border-radius: 2.5em;
+    background-image: $terciaryColor;
     padding: 30px;
     width: 450px;
-    height: 400px;
-    &::before {
+    border-radius: 2.5em;
+    height: 95%;
+    margin: 5px;
+
+    /* height: 500px; */
+    /* &::before {
       content: "";
       background-image: linear-gradient(45deg, #ff0000, #ffb700);
-      height: 408px;
+      height: 508px;
       width: 459px;
       position: absolute;
       margin-top: -34px;
       margin-left: px;
       z-index: -1;
       border-radius: 2.7em;
-    }
+    } */
     div {
       width: 90%;
       .input {
@@ -48,14 +58,15 @@
           color: #9b725b;
         }
       }
-    }
-    .buttons__container {
-      width: 100%;
-      display: flex;
-      gap: 2rem;
-      margin-top: 3rem;
-      .button {
-        padding: 10px 5px;
+      .buttons__container {
+        width: 100%;
+        display: flex;
+        gap: 2rem;
+        margin-top: 3rem;
+        justify-content: center;
+        .button {
+          padding: 10px 5px;
+        }
       }
     }
   }

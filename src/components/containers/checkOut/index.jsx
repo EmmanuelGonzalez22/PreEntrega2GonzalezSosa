@@ -1,33 +1,8 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { CheckOutForm, Loader } from "../../../components";
 import { useSales } from "../../../hooks";
 
 const CheckOut = () => {
-  const { enviar, saleId, isLoading } = useSales();
-  const [showConfirmation, setShowConfirmation] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(5);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    // valido si retorno un id de la promesa del addDoc, y si es asi, limpio el formulario ,muestro el mensaje de confirmacion y redirijo al home
-    if (saleId !== "" && saleId !== "error") {
-      setShowConfirmation(true);
-      document.getElementById("checkout-form").reset();
-
-      const countdown = setInterval(() => {
-        setTimeLeft((prevTime) => prevTime - 1);
-      }, 1000);
-
-      setTimeout(() => {
-        setShowConfirmation(false);
-        clearInterval(countdown);
-        navigate("/");
-      }, timeLeft * 1000);
-
-      return () => clearInterval(countdown);
-    }
-  }, [saleId, navigate, timeLeft]);
+  const { enviar, saleId, isLoading, showConfirmation, timeLeft } = useSales();
 
   /* COMPONENTE JSX */
   if (isLoading)

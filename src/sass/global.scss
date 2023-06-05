@@ -35,7 +35,7 @@ a {
   cursor: pointer;
   &:hover {
     border: 2px solid #ff5900;
-    background: linear-gradient(45deg, #330808, #3a2c09);
+    background: $terciaryColor;
     color: #ff5900;
   }
 }
