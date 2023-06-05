@@ -32,7 +32,7 @@ const ItemDetail = ({ item }) => {
 
   return (
     <article className='itemDetail__container'>
-      <header>
+      <header className='detail__header'>
         <h4 className='fw-bold'>{name.toUpperCase()}</h4>
         <div>
           <img src={img} alt={name} />
@@ -60,7 +60,8 @@ const ItemDetail = ({ item }) => {
           </Link>
         )}
       </section>
-      <footer>
+      <footer className='detail__footer'>
+        <h5>Descripción</h5>
         <p>{description}</p>
       </footer>
     </article>

@@ -2,18 +2,18 @@ import "./styles.scss";
 
 const ItemCount = ({ cantidad, resta, incrementa, stock, onAdd }) => {
   return (
-    <div className='container'>
+    <div>
       <div className='itemCount__container'>
         <button
+          className={`button ${cantidad <= 1 && "disabled"}`}
           onClick={resta}
-          disabled={cantidad <= 1 || cantidad === undefined ? true : false}
         >
           -
         </button>
         <h4>{cantidad}</h4>
         <button
+          className={`button ${cantidad >= stock && "disabled"}`}
           onClick={incrementa}
-          disabled={cantidad >= stock || cantidad === undefined ? true : false}
         >
           +
         </button>

@@ -1,9 +1,6 @@
 @import "../../../sass/mixins";
 
 .itemDetail__container {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
   width: 80%;
   margin: 50px auto;
   background: $secondaryColor;
@@ -18,15 +15,26 @@
     [row3-start] "footer footer footer" auto [row3-end]
     / auto 50px auto;
   align-items: center;
-  header {
+
+  .detail__header {
     grid-area: header;
-  }
-  footer {
-    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    img {
+      width: 100%;
+    }
+    h4 {
+      font-size: 2rem;
+    }
   }
   .price__section {
     grid-area: price;
     display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: flex-end;
     h5 {
       display: flex;
       flex-direction: column;
@@ -44,18 +52,24 @@
   }
   .count__section {
     grid-area: count;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
-}
-
-.button {
-  padding: 0.5rem 1.5rem;
-  border: 1px solid black;
-  border-radius: 15px;
-  background-color: blue;
-  color: white;
-  margin-bottom: 2rem;
-  &:hover {
-    background-color: $secondaryColor;
-    color: black;
+  .detail__footer {
+    grid-area: footer;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    h5 {
+      border-bottom: 2px solid black;
+      padding-bottom: 10px;
+      font-size: 1.5rem;
+    }
+    p {
+      text-align: justify;
+    }
   }
 }
