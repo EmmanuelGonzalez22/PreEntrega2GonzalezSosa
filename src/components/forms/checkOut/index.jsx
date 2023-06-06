@@ -9,7 +9,6 @@ const CheckOutForm = ({ enviar }) => {
     formState: { errors },
     trigger,
     watch,
-    getValues,
   } = useForm();
 
   const handleChange = (e) => {
@@ -36,7 +35,7 @@ const CheckOutForm = ({ enviar }) => {
               id='name'
               placeholder='Ingrese su nombre'
               {...register("name", {
-                required: "Ingrese su nombre",
+                required: "Nombre obligatorio",
               })}
               onFocus={handleChange}
               onKeyUp={handleChange}
@@ -60,7 +59,7 @@ const CheckOutForm = ({ enviar }) => {
               type='text'
               id='email'
               placeholder='Ingrese su email'
-              {...register("email", { required: "Ingrese su email" })}
+              {...register("email", { required: "El email es obligatorio" })}
               onFocus={handleChange}
               onKeyUp={handleChange}
             />
@@ -97,7 +96,7 @@ const CheckOutForm = ({ enviar }) => {
               id='phone'
               placeholder='Ingrese su número de teléfono'
               {...register("phone", {
-                required: "Ingrese su número de teléfono",
+                required: "Teléfono obligatorio",
                 pattern: {
                   value: /^\d+$/,
                   message: "Ingrese solo números",
