@@ -11,7 +11,7 @@ const Item = ({
   quantity,
 }) => {
   return (
-    <article className={!showCartItem ? "cardUi" : "CardCart"}>
+    <article className={!showCartItem ? "cardUi" : "cardCart"}>
       {!showCartItem && (
         <div
           className='background-img'
@@ -25,19 +25,17 @@ const Item = ({
         <img src={img} alt={name} />
       </div>
       <section className={!showCartItem ? "card__price" : "cardCart__price"}>
-        <h5>Precio: ${price}</h5>
+        {!showCartItem ? <h3>Precio: $ {price}</h3> : <h3>$ {price}</h3>}
       </section>
       {showCartItem && (
-        <section>
-          <h5>
-            Cantidad de {name}: {quantity} unidades
-          </h5>
+        <section className='cardCart__subtotal'>
+          <h5>Cantidad: {quantity}</h5>
           <h4>Subtotal: ${price * quantity}</h4>
         </section>
       )}
       <footer className={!showCartItem ? "card__footer" : "cardCart__footer"}>
         {showCartItem ? (
-          <button className='removeButton' onClick={handleRemove}>
+          <button className='removeButton button' onClick={handleRemove}>
             X
           </button>
         ) : (

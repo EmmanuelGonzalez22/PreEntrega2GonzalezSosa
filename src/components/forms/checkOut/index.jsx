@@ -59,7 +59,13 @@ const CheckOutForm = ({ enviar }) => {
               type='text'
               id='email'
               placeholder='Ingrese su email'
-              {...register("email", { required: "El email es obligatorio" })}
+              {...register("email", {
+                required: "El email es obligatorio",
+                pattern: {
+                  value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+                  message: "Ingrese un email válido",
+                },
+              })}
               onFocus={handleChange}
               onKeyUp={handleChange}
             />

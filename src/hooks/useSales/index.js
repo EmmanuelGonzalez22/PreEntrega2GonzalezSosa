@@ -9,7 +9,6 @@ const useSales = () => {
   const { cartList, totalPrice, clear } = useCart();
   const { setIsLoading, isLoading } = useServices();
   const [saleId, setSaleId] = useState({ success: null, message: "" });
-  const [showConfirmation, setShowConfirmation] = useState(false);
   const [timeLeft, setTimeLeft] = useState(5);
   const navigate = useNavigate();
 
@@ -20,7 +19,6 @@ const useSales = () => {
     }, 1000);
 
     setTimeout(() => {
-      setShowConfirmation(false);
       clearInterval(countdown);
       navigate(redirection);
       setSaleId({});
@@ -73,7 +71,6 @@ const useSales = () => {
   useEffect(() => {
     // valido si retorno un id de la promesa del addDoc, y si es asi, limpio el formulario ,muestro el mensaje de confirmacion y redirijo al home
     if (saleId && saleId.success) {
-      setShowConfirmation(true);
       document.getElementById("checkout-form").reset();
       tempo("/");
     }
@@ -84,7 +81,7 @@ const useSales = () => {
       tempo("/cart");
     }
   }, [saleId, navigate]);
-  return { enviar, saleId, isLoading, showConfirmation, timeLeft };
+  return { enviar, saleId, isLoading, timeLeft };
 };
 
 export { useSales };
