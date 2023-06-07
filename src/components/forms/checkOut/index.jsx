@@ -103,6 +103,10 @@ const CheckOutForm = ({ enviar }) => {
               placeholder='Ingrese su número de teléfono'
               {...register("phone", {
                 required: "Teléfono obligatorio",
+                minLength: {
+                  value: 8,
+                  message: "Ingrese un número de teléfono válido",
+                },
                 pattern: {
                   value: /^\d+$/,
                   message: "Ingrese solo números",

@@ -62,6 +62,7 @@ const ItemDetail = ({ item }) => {
       </section>
       <footer className='detail__footer'>
         <h5>Descripción</h5>
+        <div className='separator'></div>
         <p>{description}</p>
       </footer>
     </article>

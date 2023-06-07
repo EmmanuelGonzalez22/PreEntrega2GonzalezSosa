@@ -64,9 +64,16 @@
     flex-direction: column;
     gap: 10px;
     h5 {
-      border-bottom: 2px solid black;
-      padding-bottom: 10px;
       font-size: 1.5rem;
+      margin: 0;
+    }
+    .separator {
+      width: 100%;
+      background-image: linear-gradient(
+        45deg,
+        rgba(255, 0, 0, 1),
+        rgba(255, 183, 0, 1)
+      );
     }
     p {
       text-align: justify;
