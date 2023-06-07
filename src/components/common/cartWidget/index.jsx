@@ -8,11 +8,7 @@ const CartWidget = () => {
   const cartItems = totalItems();
 
   return (
-    <Link
-      to='/cart'
-      className='cartWidget__container'
-      style={{ visibility: cartItems === 0 && "hidden" }}
-    >
+    <Link to='/cart' className='cartWidget__container'>
       <img src={cart} alt='cart' />
       <span id='contadorCarrito'>{cartItems}</span>
     </Link>

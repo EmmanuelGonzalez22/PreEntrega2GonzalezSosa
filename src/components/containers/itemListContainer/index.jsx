@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Loader, ItemList } from "../../../components";
 import { useServices } from "../../../hooks";
 import "./styles.scss";
@@ -23,7 +24,12 @@ const ItemListContainer = () => {
   if (products.length === 0 && !isLoading)
     return (
       <main className='main container'>
-        <h2 className='main__title'>{msg}</h2>
+        <article className='empty__container'>
+          <h2 className='main__title'>{msg}</h2>
+          <Link to='/' className='button'>
+            Ver más productos
+          </Link>
+        </article>
       </main>
     );
 

@@ -5,6 +5,20 @@
   min-height: 100vh;
   margin-bottom: 8vh;
   position: relative;
+  .empty__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0 auto 8vh;
+    border: 1px solid black;
+    border-radius: 25px;
+    padding: 2rem;
+    background-color: #fdf9e3;
+    .main__title {
+      margin-bottom: 30px;
+    }
+  }
   .main__title {
     display: inline-block;
     margin: 0;

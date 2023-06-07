@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const useCount = (initial, min, max) => {
-  initial = Math.min(initial, max) >= max ? 0 : min;
+  initial = Math.max(Math.min(initial, max), min);
   const [cantidad, setCantidad] = useState(initial);
 
   const resta = () => cantidad > min && setCantidad((prev) => prev - 1);

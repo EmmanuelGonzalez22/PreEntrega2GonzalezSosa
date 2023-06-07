@@ -80,6 +80,8 @@ const useSales = () => {
     if (saleId.success === undefined) {
       tempo("/cart");
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [saleId, navigate]);
   return { enviar, saleId, isLoading, timeLeft };
 };
