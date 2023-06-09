@@ -19,9 +19,9 @@ const useSales = () => {
     }, 1000);
 
     setTimeout(() => {
-      clearInterval(countdown);
       navigate(redirection);
-      setSaleId({});
+      clearInterval(countdown);
+      setSaleId({ success: null, message: "" });
     }, timeLeft * 1000);
 
     return () => clearInterval(countdown);
@@ -56,7 +56,7 @@ const useSales = () => {
       setIsLoading(true);
       const salesRef = await addDoc(sales, newOrder);
       setSaleId({ success: true, message: salesRef.id });
-      clear();
+      clear("Se realizó la compra con exito");
     } catch (e) {
       setSaleId({
         success: false,

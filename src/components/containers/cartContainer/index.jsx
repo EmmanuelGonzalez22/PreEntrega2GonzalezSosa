@@ -28,7 +28,10 @@ const CartContainer = () => {
         <section className='cart__total'>
           <h3>Total: ${total}</h3>
           <div className='cart__total-buttons'>
-            <button onClick={clear} className='button'>
+            <button
+              onClick={() => clear("Se vacío el carrito")}
+              className='button'
+            >
               Vaciar carrito
             </button>
             <Link to='/check-out' className='button'>

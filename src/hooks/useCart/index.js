@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { CartContext } from "../../contexts";
+import { UsePopUp } from "../usePopUp";
 
 const useCart = () => {
   const { cartList, setCartList } = useContext(CartContext);
+  const { addPopUp } = UsePopUp();
 
   /* AGREGAR ITEM AL CARRITO */
   const addItem = (itemCart, quantity) => {
@@ -19,15 +21,27 @@ const useCart = () => {
     else {
       setCartList((prev) => [...prev, { ...itemCart, quantity }]);
     }
+
+    const msg = `Se ${quantity === 1 ? "agregó" : "agregaron"} ${quantity} ${
+      itemCart.name
+    } al carrito`;
+    addPopUp(msg, "add");
   };
 
   /* REMOVER ITEM DEL CARRITO */
   const removeItem = (itemId) => {
+    const msg = `Se eliminó ${
+      cartList.find((el) => el.id === itemId).name
+    } del carrito`;
+    addPopUp(msg, "remove");
+
     return setCartList(cartList.filter((el) => el.id !== itemId));
   };
 
   /* VACIAR EL CARRITO */
-  const clear = () => {
+  const clear = (msg) => {
+    addPopUp(msg, "clear");
+
     return setCartList([]);
   };
 

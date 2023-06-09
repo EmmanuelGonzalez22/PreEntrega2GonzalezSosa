@@ -7,24 +7,24 @@ import {
   ItemListContainer,
   NavBar,
 } from "./components";
-import { CartProvider } from "./contexts";
+import { CartProvider, PopUpProvider } from "./contexts";
 
 function App() {
   return (
     <BrowserRouter>
       <CartProvider>
-        <NavBar />
-
-        <Routes>
-          <Route path='/' element={<ItemListContainer />} />
-          <Route path='/item/:id' element={<ItemDetailContainer />} />
-          <Route path='/category' element={<ItemListContainer />} />
-          <Route path='/category/:category' element={<ItemListContainer />} />
-          <Route path='/cart' element={<CartContainer />} />
-          <Route path='/check-out' element={<CheckOut />} />
-        </Routes>
-
-        <Footer />
+        <PopUpProvider>
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<ItemListContainer />} />
+            <Route path='/item/:id' element={<ItemDetailContainer />} />
+            <Route path='/category' element={<ItemListContainer />} />
+            <Route path='/category/:category' element={<ItemListContainer />} />
+            <Route path='/cart' element={<CartContainer />} />
+            <Route path='/check-out' element={<CheckOut />} />
+          </Routes>
+          <Footer />
+        </PopUpProvider>
       </CartProvider>
     </BrowserRouter>
   );
