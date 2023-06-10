@@ -20,22 +20,36 @@ const fetchProducts = async (category) => {
   let productsQuery = productsRef;
 
   try {
+    if (!navigator.onLine) {
+      throw new Error("No hay conexión a Internet");
+    }
     if (category) {
-      const categoryQuery = query(categoriesRef, where("name", "==", category));
-      const categorySnapshot = await getDocs(categoryQuery);
-
-      const { docs, empty } = categorySnapshot;
-
-      if (!empty) {
-        const categoryId = docs[0].ref;
-        productsQuery = query(
-          productsRef,
-          where("categoryId", "==", categoryId)
+      try {
+        const categoryQuery = query(
+          categoriesRef,
+          where("name", "==", category)
         );
-      } else {
+        const categorySnapshot = await getDocs(categoryQuery);
+
+        const { docs, empty } = categorySnapshot;
+
+        if (!empty) {
+          const categoryId = docs[0].ref;
+          productsQuery = query(
+            productsRef,
+            where("categoryId", "==", categoryId)
+          );
+        } else {
+          return {
+            products: [],
+            message:
+              "No se encontraron productos para la categoría seleccionada",
+          };
+        }
+      } catch (error) {
         return {
-          products: [],
-          message: "No se encontraron productos para la categoría seleccionada",
+          products: null,
+          message: `Error al obtener los productos: ${error}`,
         };
       }
     }
@@ -55,7 +69,7 @@ const fetchProducts = async (category) => {
   } catch (error) {
     return {
       products: null,
-      message: "Error al obtener los productos: " + error,
+      message: `Error al obtener los productos: ${error}`,
     };
   }
 };
@@ -67,6 +81,9 @@ const fetchProductById = async (id) => {
   const productRef = doc(db, "products", id);
 
   try {
+    if (!navigator.onLine) {
+      throw new Error("No hay conexión a Internet");
+    }
     const productSnapshot = await getDoc(productRef);
     if (!productSnapshot.exists()) {
       return { item: undefined, message: "No se encontró el producto" };
@@ -77,7 +94,7 @@ const fetchProductById = async (id) => {
     };
     return { item, message: true };
   } catch (error) {
-    return { item: null, message: "Error al obtener el producto: " + error };
+    return { item: null, message: `Error al obtener el producto: ${error}` };
   }
 };
 
@@ -85,6 +102,9 @@ const fetchProductById = async (id) => {
 
 const fetchCategories = async () => {
   try {
+    if (!navigator.onLine) {
+      throw new Error("No hay conexión a Internet");
+    }
     const querySnapshot = await getDocs(categoriesRef);
     const categoriesCollection = querySnapshot.docs.map((doc) => {
       const data = doc.data();

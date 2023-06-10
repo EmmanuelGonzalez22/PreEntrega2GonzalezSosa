@@ -12,6 +12,7 @@ const useServices = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [msg, setMsg] = useState("Bienvenidos a Pet´s BRC");
   const [item, setItem] = useState(null);
+  const [error, setError] = useState(null);
   const { category } = useParams();
   const { id } = useParams();
 
@@ -32,12 +33,19 @@ const useServices = () => {
     setIsLoading(true);
     try {
       const productData = await fetchProducts(category);
-      if (productData.products !== null) {
-        setProducts(productData.products);
+
+      if (productData.products === null) {
+        return setError(productData.message);
       }
+
+      if (productData.products.length === 0) {
+        return setMsg(productData.message);
+      }
+
+      setProducts(productData.products);
       setMsg(productData.message);
     } catch (error) {
-      setMsg(error.message);
+      setError(`Error al obtener los productos: ${error.message}`);
     } finally {
       setIsLoading(false);
     }
@@ -48,13 +56,18 @@ const useServices = () => {
     setIsLoading(true);
     try {
       const productResponse = await fetchProductById(id);
-      if (!productResponse.item) {
-        setMsg(productResponse.message);
-      } else {
-        setItem(productResponse.item);
+
+      if (productResponse.item === null) {
+        return setError(productResponse.message);
       }
+
+      if (productResponse.item === undefined) {
+        return setMsg(productResponse.message);
+      }
+
+      setItem(productResponse.item);
     } catch (error) {
-      setMsg(error.message);
+      setError(`Error al obtener el producto: ${error.message}`);
     } finally {
       setIsLoading(false);
     }
@@ -72,6 +85,7 @@ const useServices = () => {
     loadCategories,
     loadProducts,
     loadProduct,
+    error,
   };
 };
 

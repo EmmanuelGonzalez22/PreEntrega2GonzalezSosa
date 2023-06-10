@@ -4,7 +4,7 @@ import { ItemDetail, Loader } from "../../../components";
 import { useServices } from "../../../hooks";
 
 const ItemDetailContainer = () => {
-  const { item, isLoading, msg, id, loadProduct } = useServices();
+  const { item, isLoading, msg, id, loadProduct, error } = useServices();
 
   useEffect(() => {
     loadProduct();
@@ -13,10 +13,10 @@ const ItemDetailContainer = () => {
 
   /* COMPONENTE JSX */
 
-  if (!item) {
+  if (error && !isLoading) {
     return (
       <main className='main container'>
-        <h2 className='main__title'>{msg}</h2>
+        <h2 className='main__title'>{error}</h2>
       </main>
     );
   }
