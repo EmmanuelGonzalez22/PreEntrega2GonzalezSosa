@@ -69,9 +69,8 @@ const fetchProductById = async (id) => {
   try {
     const productSnapshot = await getDoc(productRef);
     if (!productSnapshot.exists()) {
-      return { item: null, message: false };
+      return { item: undefined, message: "No se encontró el producto" };
     }
-
     const item = {
       id: productSnapshot.id,
       ...productSnapshot.data(),

@@ -5,8 +5,7 @@ import { useServices } from "../../../hooks";
 import "./styles.scss";
 
 const ItemListContainer = () => {
-  const { error, isLoading, products, msg, category, loadProducts } =
-    useServices();
+  const { isLoading, products, msg, category, loadProducts } = useServices();
 
   useEffect(() => {
     loadProducts();
@@ -14,10 +13,10 @@ const ItemListContainer = () => {
   }, [category]);
 
   /* COMPONENTE JSX */
-  if (error)
+  if (products === null)
     return (
       <main className='main container'>
-        <h2 className='main__title'>{error}</h2>
+        <h2 className='main__title'>{msg}</h2>
       </main>
     );
 

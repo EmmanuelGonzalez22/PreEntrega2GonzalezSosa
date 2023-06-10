@@ -10,7 +10,6 @@ const useServices = () => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
   const [msg, setMsg] = useState("Bienvenidos a Pet´s BRC");
   const [item, setItem] = useState(null);
   const { category } = useParams();
@@ -33,10 +32,12 @@ const useServices = () => {
     setIsLoading(true);
     try {
       const productData = await fetchProducts(category);
-      setProducts(productData.products);
+      if (productData.products !== null) {
+        setProducts(productData.products);
+      }
       setMsg(productData.message);
     } catch (error) {
-      setError(error.message);
+      setMsg(error.message);
     } finally {
       setIsLoading(false);
     }
@@ -47,13 +48,13 @@ const useServices = () => {
     setIsLoading(true);
     try {
       const productResponse = await fetchProductById(id);
-      if (!productResponse.message) {
-        setMsg("No se encontró el producto");
+      if (!productResponse.item) {
+        setMsg(productResponse.message);
       } else {
         setItem(productResponse.item);
       }
     } catch (error) {
-      setError(error.message);
+      setMsg(error.message);
     } finally {
       setIsLoading(false);
     }
@@ -64,7 +65,6 @@ const useServices = () => {
     products,
     isLoading,
     setIsLoading,
-    error,
     msg,
     item,
     id,

@@ -1,123 +1,67 @@
 import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
+import { FormInput } from "../../common";
 import "./styles.scss";
 
 const CheckOutForm = ({ enviar }) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    trigger,
-    watch,
-  } = useForm();
-
-  const handleChange = (e) => {
-    trigger(e.target.name);
-    if (e.target.name === "email") {
-      trigger("emailConfirm");
-    }
-  };
+  const methods = useForm();
+  const { handleSubmit } = methods;
 
   return (
     <section className='form__container'>
       <h1 className='main__title'>Checkout</h1>
       <div className='border__gradient'>
-        <form
-          className='form'
-          id='checkout-form'
-          onSubmit={handleSubmit(enviar)}
-        >
-          <div>
-            <label htmlFor='name'></label>
-            <input
+        <FormProvider {...methods}>
+          <form
+            className='form'
+            id='checkout-form'
+            onSubmit={handleSubmit(enviar)}
+          >
+            <FormInput
               className='input'
-              type='text'
-              id='name'
-              placeholder='Ingrese su nombre'
-              {...register("name", {
-                required: "Nombre obligatorio",
-              })}
-              onFocus={handleChange}
-              onKeyUp={handleChange}
+              id={"name"}
+              placeholder={"Ingrese su nombre"}
+              type={"text"}
+              required={true}
+              pattern={/^[a-zA-ZáéíóúÁÉÍÓÚ\s]*$/}
+              errorMessage={"Ingrese solo letras"}
             />
-            {errors.name && <span className='red'>{errors.name.message}</span>}
-          </div>
-          <div>
-            <label htmlFor='surname'></label>
-            <input
+            <FormInput
               className='input'
-              type='text'
-              id='surname'
-              placeholder='Ingrese su apellido'
-              {...register("surname")}
+              id={"surname"}
+              placeholder={"Ingrese su apellido"}
+              type={"text"}
+              pattern={/^[a-zA-ZáéíóúÁÉÍÓÚ\s]*$/}
+              errorMessage={"Ingrese solo letras"}
             />
-          </div>
-          <div>
-            <label htmlFor='email'></label>
-            <input
+            <FormInput
               className='input'
-              type='text'
               id='email'
-              placeholder='Ingrese su email'
-              {...register("email", {
-                required: "El email es obligatorio",
-                pattern: {
-                  value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-                  message: "Ingrese un email válido",
-                },
-              })}
-              onFocus={handleChange}
-              onKeyUp={handleChange}
+              placeholder={"Ingrese su email"}
+              type={"text"}
+              required={true}
+              pattern={/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/}
+              errorMessage={"Ingrese un email válido"}
             />
-            {errors.email && (
-              <span className='red'>{errors.email.message}</span>
-            )}
-          </div>
-          <div>
-            <label htmlFor='emailConfirm'></label>
-            <input
+            <FormInput
               className='input'
-              type='text'
-              id='emailConfirm'
-              placeholder='Ingrese su email nuevamente'
-              {...register("emailConfirm", {
-                required: "Confirme su email",
-                validate: {
-                  matchesEmail: (value) =>
-                    value === watch("email") || "Los emails no coinciden",
-                },
-              })}
-              onFocus={handleChange}
-              onKeyUp={handleChange}
+              id={"emailConfirm"}
+              placeholder={"Confirme su email"}
+              type={"text"}
+              required={true}
+              errorMessage={"Los emails no coinciden"}
+              match={"email"}
             />
-            {errors.emailConfirm && (
-              <span className='red'>{errors.emailConfirm.message}</span>
-            )}
-          </div>
-          <div>
-            <label htmlFor='phone'></label>
-            <input
+            <FormInput
               className='input'
-              type='text'
-              id='phone'
-              placeholder='Ingrese su número de teléfono'
-              {...register("phone", {
-                required: "Teléfono obligatorio",
-                minLength: {
-                  value: 8,
-                  message: "Ingrese un número de teléfono válido",
-                },
-                pattern: {
-                  value: /^\d+$/,
-                  message: "Ingrese solo números",
-                },
-              })}
-              onFocus={handleChange}
-              onKeyUp={handleChange}
+              id={"phone"}
+              placeholder={"Ingrese su número de teléfono"}
+              type={"text"}
+              required={true}
+              pattern={/^\d+$/}
+              errorMessage={"Ingrese solo números"}
+              minLength={8}
             />
-            {errors.phone && (
-              <span className='red'>{errors.phone.message}</span>
-            )}
             <div className='buttons__container'>
               <Link to='/' className='button'>
                 Seguir comprando
@@ -126,8 +70,8 @@ const CheckOutForm = ({ enviar }) => {
                 Finalizar compra
               </button>
             </div>
-          </div>
-        </form>
+          </form>
+        </FormProvider>
       </div>
     </section>
   );

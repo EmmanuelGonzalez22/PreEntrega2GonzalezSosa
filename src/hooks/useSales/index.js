@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { db } from "../../services/firebaseConfig";
 import { addDoc, collection } from "firebase/firestore";
 import { useCart, useServices } from "../../hooks";
-import { useNavigate } from "react-router-dom";
 
 const useSales = () => {
   const sales = collection(db, "sales");
@@ -12,7 +12,7 @@ const useSales = () => {
   const [timeLeft, setTimeLeft] = useState(5);
   const navigate = useNavigate();
 
-  // Funcion que se encarga de mostrar el mensaje de confirmacion por 5 segundos y luego redirigir al home
+  // Funcion que se encarga de mostrar el mensaje de confirmacion por 5 segundos y luego redirige a la pagina que se le pasa por parametro
   const tempo = (redirection) => {
     const countdown = setInterval(() => {
       setTimeLeft((prevTime) => prevTime - 1);
@@ -67,16 +67,19 @@ const useSales = () => {
     }
   };
 
-  // En caso que la operacion tuviera exito, se ejecuta este useEffect
   useEffect(() => {
     // valido si retorno un id de la promesa del addDoc, y si es asi, limpio el formulario ,muestro el mensaje de confirmacion y redirijo al home
     if (saleId && saleId.success) {
       document.getElementById("checkout-form").reset();
       tempo("/");
     }
+
+    // si la promesa del addDoc retorna un error, muestro el mensaje de error y redirijo al check-out
     if (saleId.success === false) {
       tempo("/check-out");
     }
+
+    // si carrito esta vacio, redirijo al carrito
     if (saleId.success === undefined) {
       tempo("/cart");
     }

@@ -1,34 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ItemCount } from "../../../components";
 import { useCount, useCart } from "../../../hooks";
 import "./styles.scss";
 
 const ItemDetail = ({ item }) => {
-  const { id, name, price, stock, img, category, description } = item;
-
-  const { addItem, cartList } = useCart();
-  const [quantityAdded, setQuantityAdded] = useState(0);
+  const { id, name, price, stock, img, description } = item;
+  const { addToCart, cartList } = useCart();
   const { cantidad, resta, incrementa, reset } = useCount(1, 1, stock);
-
-  const addToCart = () => {
-    const itemCart = {
-      img,
-      id,
-      name,
-      price,
-      category,
-    };
-
-    setQuantityAdded(cantidad);
-
-    addItem(itemCart, cantidad);
-  };
 
   useEffect(() => {
     reset();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [quantityAdded]);
+  }, [cartList]);
 
   return (
     <article className='itemDetail__container'>
@@ -52,7 +36,7 @@ const ItemDetail = ({ item }) => {
           cantidad={cantidad}
           incrementa={incrementa}
           resta={resta}
-          onAdd={addToCart}
+          onAdd={() => addToCart(img, id, name, price, cantidad)}
         />
         {cartList.length > 0 && (
           <Link to='/cart' className='button'>

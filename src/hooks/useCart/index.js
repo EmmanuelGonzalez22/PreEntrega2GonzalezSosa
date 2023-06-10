@@ -58,7 +58,26 @@ const useCart = () => {
     return cartList.reduce((acc, producto) => acc + producto.quantity, 0);
   };
 
-  return { addItem, clear, removeItem, totalPrice, totalItems, cartList };
+  const addToCart = (img, id, name, price, cantidad) => {
+    const itemCart = {
+      img,
+      id,
+      name,
+      price,
+    };
+
+    addItem(itemCart, cantidad);
+  };
+
+  return {
+    addItem,
+    clear,
+    removeItem,
+    totalPrice,
+    totalItems,
+    cartList,
+    addToCart,
+  };
 };
 
 export { useCart };

@@ -1,5 +1,5 @@
 import { useCart } from "../../../hooks";
-import { Item } from "../item";
+import { Item } from "../../../components";
 
 const ItemList = ({ products, showCartItem }) => {
   const { removeItem } = useCart();

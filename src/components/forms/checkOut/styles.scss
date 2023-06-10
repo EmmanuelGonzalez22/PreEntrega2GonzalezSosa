@@ -44,15 +44,15 @@
           color: #9b725b;
         }
       }
-      .buttons__container {
-        width: 100%;
-        display: flex;
-        gap: 2rem;
-        margin-top: 3rem;
-        justify-content: center;
-        .button {
-          padding: 10px 5px;
-        }
+    }
+    .buttons__container {
+      width: 100%;
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+      justify-content: center;
+      .button {
+        padding: 10px 5px;
       }
     }
   }
