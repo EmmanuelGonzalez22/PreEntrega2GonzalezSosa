@@ -1,8 +1,13 @@
 @import "../../../sass/mixins";
 .form__container {
-  @include center;
-  flex-direction: column;
-  gap: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 70px;
+  gap: 5rem;
+  &.justify-center {
+    justify-content: center;
+  }
   .border__gradient {
     width: 459px;
     border-width: 3px;
@@ -39,7 +44,6 @@
           background-color: transparent;
           color: white;
         }
-
         &::placeholder {
           color: #9b725b;
         }
@@ -53,6 +57,99 @@
       justify-content: center;
       .button {
         padding: 10px 5px;
+      }
+    }
+  }
+  .resume__container {
+    margin-right: 30px;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    background-image: $terciaryColor;
+    border: 5px solid $primaryColor;
+    border-radius: 2.7em;
+    padding-top: 35px;
+    color: #ff5900;
+    .gridProductos {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      height: 230px;
+      overflow: scroll;
+      scroll-behavior: smooth;
+      gap: 0.5rem;
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+        border-radius: 20px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #ff5900;
+        border-radius: 20px;
+        border: 6px solid $terciaryColor;
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: $secondaryColor;
+      }
+      &::-webkit-scrollbar-corner {
+        background-color: transparent;
+      }
+
+      .cardCart {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 20px;
+      }
+      .containerCart__img {
+        order: -1;
+        width: auto;
+        height: 100px;
+        img {
+          width: auto;
+          height: 100%;
+        }
+      }
+      header {
+        width: 75%;
+        h2 {
+          font-size: 1.2rem;
+          font-weight: 700;
+          margin: 0;
+        }
+      }
+      .cardCart__price {
+        display: none;
+      }
+      .cardCart__subtotal {
+        width: 75%;
+        color: $secondaryColor;
+        h4 {
+          font-size: 1rem;
+          margin: 0;
+        }
+        h5 {
+          font-size: 0.8rem;
+          margin: 0;
+        }
+      }
+      .cardCart__footer {
+        width: 10%;
+        .removeButton {
+          padding: 3px 10px;
+        }
+      }
+    }
+    .resume__total {
+      margin: 0 25px 0 auto;
+      h3 {
+        font-weight: bold;
       }
     }
   }

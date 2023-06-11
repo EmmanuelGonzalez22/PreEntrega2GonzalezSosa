@@ -11,6 +11,15 @@ const Footer = () => {
         <Link to='/' className='logo__container'>
           <img src={logo} alt='logo' />
         </Link>
+        <h3 className='section__title'>
+          <a
+            href='https://github.com/EmmanuelGonzalez22'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Emmanuel Gonzalez
+          </a>
+        </h3>
         <h4 className='section__title'>
           © {currentYear} - Todos los derechos reservados
         </h4>

@@ -16,7 +16,9 @@ const ItemDetailContainer = () => {
   if (error && !isLoading) {
     return (
       <main className='main container'>
-        <h2 className='main__title'>{error}</h2>
+        <article className='empty__container'>
+          <h2 className='main__title'>{error}</h2>
+        </article>
       </main>
     );
   }

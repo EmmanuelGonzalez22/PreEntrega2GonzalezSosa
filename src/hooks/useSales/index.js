@@ -20,8 +20,8 @@ const useSales = () => {
 
     setTimeout(() => {
       navigate(redirection);
-      clearInterval(countdown);
       setSaleId({ success: null, message: "" });
+      clearInterval(countdown);
     }, timeLeft * 1000);
 
     return () => clearInterval(countdown);
@@ -56,6 +56,7 @@ const useSales = () => {
       setIsLoading(true);
       const salesRef = await addDoc(sales, newOrder);
       setSaleId({ success: true, message: salesRef.id });
+      // limpio el carrito
       clear("Se realizó la compra con exito");
     } catch (e) {
       setSaleId({
