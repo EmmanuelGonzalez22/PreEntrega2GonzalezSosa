@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Mi Primer App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta es una aplicación de React desarrollada como un proyecto llamado "Mi Primer App". Proporciona un catálogo de productos para una tienda de mascotas, permitiendo a los usuarios explorar diferentes categorías de productos y ver detalles de productos individuales.
 
-## Available Scripts
+## Dependencias
 
-In the project directory, you can run:
+- "@testing-library/jest-dom": "^5.16.5"
+- "@testing-library/react": "^13.4.0"
+- "@testing-library/user-event": "^13.5.0"
+- "bootstrap": "^5.2.3"
+- "firebase": "^9.22.0"
+- "node-sass": "^7.0.3"
+- "react": "^18.2.0"
+- "react-bootstrap": "^2.7.4"
+- "react-dom": "^18.2.0"
+- "react-hook-form": "^7.22.1"
+- "react-router-dom": "^6.11.1"
+- "react-scripts": "5.0.1"
+- "web-vitals": "^2.1.4"
 
-### `npm start`
+## Scripts
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- start: Inicia la aplicación en modo de desarrollo.
+- build: Genera una versión de producción de la aplicación.
+- test: Ejecuta pruebas para la aplicación.
+- eject: Expone las configuraciones y scripts internos de react-scripts.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Configuración ESLint
 
-### `npm test`
+La configuración de ESLint extiende las reglas proporcionadas por "react-app" y "react-app/jest". Esto asegura que el código JavaScript siga las mejores prácticas y convenciones recomendadas para aplicaciones React.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Browserslist
 
-### `npm run build`
+La configuración de Browserslist especifica las versiones de los navegadores que se admiten tanto en producción como en desarrollo. En producción, se admiten navegadores con una cuota de mercado superior al 0.2%, excluyendo versiones antiguas. En desarrollo, se admiten las últimas versiones de Chrome, Firefox y Safari.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Manejo de Formularios
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para el manejo de formularios en la aplicación, se utiliza la librería react-hook-form (versión 7.22.1). Decidí utilizarla por la facilidad para enviar los datos del formulario, y la limpieza en el código que genera.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### ¡Disfruta explorando Mi Primer App! Si tienes alguna pregunta o problemas, no dudes en comunicarte conmigo.

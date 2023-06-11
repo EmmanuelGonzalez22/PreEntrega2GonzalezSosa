@@ -1,0 +1,21 @@
+@import "../../../sass/mixins";
+.itemCount__container {
+  @include center;
+  margin-bottom: 10px;
+  .button {
+    padding: 3px 10px;
+    background: $terciaryColor;
+    color: white;
+    &.disabled {
+      cursor: default;
+    }
+    &.disabled:hover {
+      color: white;
+    }
+  }
+
+  h4 {
+    width: 3rem;
+    margin: 0;
+  }
+}
