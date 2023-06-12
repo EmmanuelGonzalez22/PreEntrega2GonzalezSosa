@@ -12,6 +12,7 @@ const Footer = () => {
           <img src={logo} alt='logo' />
         </Link>
         <h3 className='section__title'>
+          Desarrollado por{" "}
           <a
             href='https://github.com/EmmanuelGonzalez22'
             target='_blank'
@@ -28,10 +29,10 @@ const Footer = () => {
         <h4 className='section__title'>Contáctanos</h4>
         <ul className='section__list__title'>
           <li className='section__list__item'>
-            <span className='fw-bold'>- Teléfono:</span> 2944-526489
+            <span className='fw-bold'>- Teléfono:</span> 2944-690230
           </li>
           <li className='section__list__item'>
-            <span className='fw-bold'>- Email:</span> info@petsbrc.com
+            <span className='fw-bold'>- Email:</span> megonzalezsosa@hotmail.com
           </li>
           <li className='section__list__item'>
             <span className='fw-bold'>- Dirección:</span> Tiscornia 943
