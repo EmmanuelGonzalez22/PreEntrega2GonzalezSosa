@@ -35,7 +35,7 @@ const Footer = () => {
             <span className='fw-bold'>- Email:</span> megonzalezsosa@hotmail.com
           </li>
           <li className='section__list__item'>
-            <span className='fw-bold'>- Dirección:</span> Tiscornia 927
+            <span className='fw-bold'>- Dirección:</span> Tiscornia 926
           </li>
         </ul>
       </section>
