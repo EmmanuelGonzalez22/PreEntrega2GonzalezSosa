@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { capitalizeFirstLetter } from "../../../functions/capitalizeLetter";
+import "./styles.scss";
 
-const Item = ({
+/* const Item = ({
   id,
   name,
   img,
@@ -46,6 +47,50 @@ const Item = ({
         )}
       </footer>
     </article>
+  );
+}; */
+
+const Item = ({
+  id,
+  name,
+  img,
+  price,
+  handleRemove,
+  showCartItem,
+  quantity,
+}) => {
+  return (
+    <div class='parent'>
+      <div class='card'>
+        <div class='content-box'>
+          <header className='card-title'>
+            <h2>{capitalizeFirstLetter(name)}</h2>
+          </header>
+          <section
+            className={!showCartItem ? "card__price" : "cardCart__price"}
+          >
+            {!showCartItem ? (
+              <h3 className='card-content'>Precio: $ {price}</h3>
+            ) : (
+              <h3>$ {price}</h3>
+            )}
+          </section>
+          <Link className='button see-more' to={`/item/${id}`}>
+            {" "}
+            Ver producto
+          </Link>
+        </div>
+        <div
+          className={`date-box ${
+            !showCartItem ? "container__img" : "containerCart__img"
+          }`}
+        >
+          {!showCartItem && (
+            <div className='' style={{ backgroundImage: `url(${img})` }}></div>
+          )}
+        </div>
+      </div>
+    </div>
   );
 };
 
