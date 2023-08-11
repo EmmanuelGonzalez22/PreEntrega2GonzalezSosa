@@ -5,16 +5,34 @@
   justify-content: center;
   align-items: baseline;
   background-color: $primaryColor;
+  @include responsive(tablet) {
+    flex-direction: column-reverse;
+    padding: 0 3rem 1rem;
+  }
   .footer__section {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
     .section__title {
       font-size: 1.2rem;
       margin: 1.5rem auto 1rem 0;
       font-weight: bold;
+      @include responsive(tablet) {
+        &.drop::after {
+          display: inline-block;
+          position: absolute;
+          right: 0;
+          top: 2.1rem;
+          content: "";
+          border-top: 0.3em solid;
+          border-right: 0.3em solid transparent;
+          border-bottom: 0;
+          border-left: 0.3em solid transparent;
+        }
+      }
     }
     h3.section__title {
       font-size: 1rem;
@@ -36,6 +54,12 @@
       font-size: 1rem;
       margin: 0 auto 1rem 0;
       padding: 0;
+      @include responsive(tablet) {
+        display: none;
+        &.show {
+          display: block;
+        }
+      }
       .section__list__item {
         margin: 0.5rem 0;
         padding: 0;
@@ -54,6 +78,9 @@
   .section__copyright {
     align-self: center;
     margin-right: 1rem;
+    @include responsive(tablet) {
+      margin-right: 0;
+    }
     .section__title {
       font-size: 0.8rem;
       margin: 0;

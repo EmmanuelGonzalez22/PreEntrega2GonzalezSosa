@@ -34,10 +34,10 @@ const NavBar = () => {
 
     document.addEventListener("click", handleClickOutsideMenu);
 
-    // eslint-disable-next-line
     return () => {
       document.removeEventListener("click", handleClickOutsideMenu);
     };
+    // eslint-disable-next-line
   }, []);
 
   /* COMPONENTE JSX */

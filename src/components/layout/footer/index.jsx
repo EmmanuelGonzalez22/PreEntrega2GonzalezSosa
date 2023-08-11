@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
+import { useResponsive } from "../../../hooks";
 import logo from "../../../assets/img/logo.png";
 import "./styles.scss";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const handleShow = (e) => {
+    e.target.nextElementSibling.classList.toggle("show");
+  };
+  const responsive = useResponsive(991);
 
   return (
     <footer className='footer__main'>
@@ -26,7 +31,12 @@ const Footer = () => {
         </h4>
       </section>
       <section className='footer__section'>
-        <h4 className='section__title'>Contáctanos</h4>
+        <h4
+          className='section__title drop'
+          onClick={responsive ? handleShow : null}
+        >
+          Contáctanos
+        </h4>
         <ul className='section__list__title'>
           <li className='section__list__item'>
             <span className='fw-bold'>- Teléfono:</span> 2944-690230
@@ -40,7 +50,12 @@ const Footer = () => {
         </ul>
       </section>
       <section className='footer__section'>
-        <h4 className='section__title'>Medios de pago</h4>
+        <h4
+          className='section__title drop'
+          onClick={responsive ? handleShow : null}
+        >
+          Medios de pago
+        </h4>
         <ul className='section__list__title'>
           <li className='section__list__item'>- Visa</li>
           <li className='section__list__item'>- Mastercard</li>
@@ -48,14 +63,24 @@ const Footer = () => {
         </ul>
       </section>
       <section className='footer__section'>
-        <h4 className='section__title'>Envíos</h4>
+        <h4
+          className='section__title drop'
+          onClick={responsive ? handleShow : null}
+        >
+          Envíos
+        </h4>
         <ul className='section__list__title'>
           <li className='section__list__item'>- Envíos a todo el país</li>
           <li className='section__list__item'>- Retiro en sucursal</li>
         </ul>
       </section>
       <section className='footer__section'>
-        <h4 className='section__title'>Horarios</h4>
+        <h4
+          className='section__title drop'
+          onClick={responsive ? handleShow : null}
+        >
+          Horarios
+        </h4>
         <ul className='section__list__title'>
           <li className='section__list__item'>- Lunes a viernes de 9 a 18hs</li>
           <li className='section__list__item'>- Sábados de 9 a 13hs</li>

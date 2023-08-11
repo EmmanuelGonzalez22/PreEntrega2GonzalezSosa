@@ -4,3 +4,4 @@ export { useCart } from "./useCart";
 export { useServices } from "./useServices";
 export { useSales } from "./useSales";
 export { UsePopUp } from "./usePopUp";
+export { useResponsive } from "./useResponsive";

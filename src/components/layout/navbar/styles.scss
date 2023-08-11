@@ -12,8 +12,7 @@
     margin: 0 auto;
     align-items: baseline;
     justify-content: space-between;
-    max-width: 80%;
-    padding-top: 10px;
+    padding: 10px 3rem 0;
 
     .logo__container {
       width: 90px;
@@ -40,7 +39,7 @@
         text-align: center;
         gap: 1.5rem;
         padding: 7rem 0 2rem;
-        background: $terciaryColor;
+        background: #fcfcfc;
         transition: all 0.6s ease-in-out;
         &.show {
           top: 0;

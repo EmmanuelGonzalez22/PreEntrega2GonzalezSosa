@@ -10,23 +10,14 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    margin: 0 auto 8vh;
-    border: 1px solid black;
-    border-radius: 25px;
-    padding: 2rem;
-    background-color: #fdf9e3;
+    margin: 150px auto 8vh;
     .main__title {
       margin-top: 150px;
       margin-bottom: 30px;
     }
   }
   .main__title {
-    display: inline-block;
     margin: 150px 0 0 0;
-    background-color: $secondaryColor;
-    padding: 0 6rem;
-    border: 1px solid black;
-    border-radius: 25px;
   }
   .gridProductos {
     display: grid;
