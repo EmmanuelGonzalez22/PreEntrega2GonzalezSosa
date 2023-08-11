@@ -60,9 +60,9 @@ const Item = ({
   quantity,
 }) => {
   return (
-    <div class='parent'>
-      <div class='card'>
-        <div class='content-box'>
+    <article className={`parent ${!showCartItem ? "cardUi" : "cardCart"}`}>
+      <div className='card'>
+        <div className='content-box'>
           <header className='card-title'>
             <h2>{capitalizeFirstLetter(name)}</h2>
           </header>
@@ -90,7 +90,7 @@ const Item = ({
           )}
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
