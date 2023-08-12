@@ -13,6 +13,9 @@
     align-items: baseline;
     justify-content: space-between;
     padding: 10px 3rem 0;
+    @include responsive(tablet) {
+      align-items: center;
+    }
 
     .logo__container {
       width: 90px;
@@ -64,10 +67,11 @@
       @include responsive(tablet) {
         cursor: pointer;
         display: inline-block;
-        width: 30px;
-        height: 20px;
+        width: 50px;
+        height: auto;
         transition: all 0.4s ease-in-out;
         z-index: 101;
+        order: -1;
         > span {
           width: 28px;
           height: 2px;
