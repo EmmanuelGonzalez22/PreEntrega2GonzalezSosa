@@ -35,6 +35,10 @@ body {
     z-index: 9999;
     transform: translateY(120%);
     transition: 0.4s;
+    @include responsive(mobile) {
+      width: 300px;
+      height: 80px;
+    }
     &.active {
       transform: translateY(0);
     }
@@ -44,6 +48,10 @@ body {
       text-align: center;
       margin: 0;
       cursor: default;
+      @include responsive(mobile) {
+        font-size: 1rem;
+        padding: 0;
+      }
     }
     &.add {
       background: $primaryColor;

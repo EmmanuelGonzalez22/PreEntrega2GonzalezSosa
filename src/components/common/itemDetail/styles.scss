@@ -1,11 +1,8 @@
 @import "../../../sass/mixins";
 
 .itemDetail__container {
-  width: 80%;
-  margin: 100px auto;
-  padding: 5rem;
-  gap: 2%;
-  border-radius: 5rem;
+  margin: 50px auto;
+  padding: 5rem 9rem;
   display: grid;
   grid-template:
     [row1-start] "header header price" auto [row1-end]
@@ -13,6 +10,12 @@
     [row3-start] "footer footer footer" auto [row3-end]
     / auto 50px auto;
   align-items: center;
+  @include responsive(mobile) {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    margin-top: 120px;
+  }
 
   .detail__header {
     grid-area: header;
@@ -33,6 +36,9 @@
     justify-content: center;
     height: 100%;
     align-items: flex-end;
+    @include responsive(mobile) {
+      margin: 20px 0 10px;
+    }
     h5 {
       display: flex;
       flex-direction: column;

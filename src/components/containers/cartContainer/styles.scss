@@ -1,24 +1,13 @@
 @import "../../../sass/mixins";
 .cart__main {
-  min-height: 100vh;
   .cart__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    margin: 0 auto 8vh;
-    border: 1px solid black;
-    border-radius: 25px;
-    padding: 2rem;
-    background-color: $secondaryColor;
+    margin: 150px auto 8vh;
     .cart__title {
-      display: inline-block;
       margin: 0 0 30px;
-      background-color: $secondaryColor;
-      padding: 0 6rem;
-      border: 1px solid black;
-      border-radius: 25px;
-      position: relative;
     }
     .gridProductos {
       width: 100%;

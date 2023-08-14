@@ -60,9 +60,9 @@ const Item = ({
   quantity,
 }) => {
   return (
-    <article className={`parent ${!showCartItem ? "cardUi" : "cardCart"}`}>
-      <div className='card'>
-        <div className='content-box'>
+    <article className={!showCartItem ? "parent" : "cardCart"}>
+      <div className={!showCartItem && "card"}>
+        <div className={!showCartItem && "content-box"}>
           <header className='card-title'>
             <h2>{capitalizeFirstLetter(name)}</h2>
           </header>
@@ -74,17 +74,29 @@ const Item = ({
             ) : (
               <h3>$ {price}</h3>
             )}
+            {showCartItem && (
+              <section className='cardCart__subtotal'>
+                <h5>Cantidad: {quantity}</h5>
+                <h4>Subtotal: ${price * quantity}</h4>
+              </section>
+            )}
           </section>
-          <Link className='button see-more' to={`/item/${id}`}>
-            {" "}
-            Ver producto
-          </Link>
+          <footer
+            className={!showCartItem ? "card__footer" : "cardCart__footer"}
+          >
+            {showCartItem ? (
+              <button className='removeButton button' onClick={handleRemove}>
+                X
+              </button>
+            ) : (
+              <Link className='button see-more' to={`/item/${id}`}>
+                {" "}
+                Ver producto
+              </Link>
+            )}
+          </footer>
         </div>
-        <div
-          className={`date-box ${
-            !showCartItem ? "container__img" : "containerCart__img"
-          }`}
-        >
+        <div className={!showCartItem ? "date-box" : "containerCart__img"}>
           {!showCartItem && (
             <div className='' style={{ backgroundImage: `url(${img})` }}></div>
           )}
