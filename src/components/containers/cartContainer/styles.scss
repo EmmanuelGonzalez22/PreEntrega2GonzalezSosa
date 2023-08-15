@@ -1,14 +1,11 @@
 @import "../../../sass/mixins";
 .cart__main {
+  min-height: 80vh;
   .cart__container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     flex-direction: column;
     margin: 150px auto 8vh;
-    .cart__title {
-      margin: 0 0 30px;
-    }
     .gridProductos {
       width: 100%;
       display: flex;
@@ -17,49 +14,68 @@
       justify-content: center;
       gap: 5px;
       text-align: left;
-      .cardCart {
-        position: relative;
-        width: 100%;
+    }
+    .cart__title {
+      margin: 0 0 50px;
+      text-align: center;
+    }
+  }
+}
+.parentCart {
+  position: relative;
+  width: 100%;
+  padding: 15px 50px;
+  @include responsive(mobile) {
+    padding: 15px 20px 15px 10px;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 90%;
+    height: 3px;
+    background-image: linear-gradient(
+      45deg,
+      rgba(255, 0, 0, 0.5),
+      rgba(255, 183, 0, 0.5)
+    );
+  }
+  .cardCart {
+    display: flex;
+    justify-content: space-between;
+    .containerCart__content {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      header {
+        width: 40%;
+        h2 {
+          font-size: 1.2rem;
+          font-weight: 700;
+          margin: 0;
+          text-align: left;
+          @include responsive(mobile) {
+            font-size: 0.9rem;
+          }
+        }
+      }
+      .cardCart__price {
+        width: 50%;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding: 40px 50px;
-        &::before {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          transform: translate(-50%, 0);
-          width: 90%;
-          height: 3px;
-          background-image: linear-gradient(
-            45deg,
-            rgba(255, 0, 0, 0.5),
-            rgba(255, 183, 0, 0.5)
-          );
-        }
-        .containerCart__img {
-          order: -1;
+        gap: 50px;
+        @include responsive(mobile) {
           width: auto;
-          height: 120px;
-          img {
-            width: auto;
-            height: 100%;
-          }
+          gap: 0;
         }
-        header {
-          width: 75%;
-          h2 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin: 0;
-          }
-        }
-        .cardCart__price {
-          width: 30%;
-          h3 {
-            font-size: 1.2rem;
-            margin: 0;
+        h3 {
+          width: 25%;
+          font-size: 1.2rem;
+          margin: 0;
+          @include responsive(mobile) {
+            display: none;
           }
         }
         .cardCart__subtotal {
@@ -68,38 +84,79 @@
             font-size: 1.2rem;
             font-weight: 700;
             margin: 0;
+            @include responsive(mobile) {
+              font-size: 0.9rem;
+            }
           }
           h5 {
-            font-size: 1rem;
+            font-size: 0.8rem;
             margin: 0;
+            @include responsive(mobile) {
+              font-size: 0.8rem;
+            }
           }
         }
-        .cardCart__footer {
-          width: 10%;
-          .removeButton {
-            padding: 3px 10px;
+      }
+      .cardCart__footer {
+        width: 10%;
+        margin-left: auto;
+        .removeButton {
+          padding: 3px 10px;
+          @include responsive(mobile) {
+            padding: 3px 8px;
+            font-size: 0.8rem;
           }
         }
       }
     }
-    .cart__total {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      margin: 30px 0 0;
-      padding: 0 50px;
-      h3 {
-        font-size: 1.7rem;
-        font-weight: 700;
-        margin: 0;
+    .containerCart__img {
+      order: -1;
+      width: auto;
+      height: 120px;
+      @include responsive(mobile) {
+        height: 80px;
       }
-      .cart__total-buttons {
-        margin: 10px 0;
-        display: flex;
-        gap: 20px;
-        align-self: flex-end;
+      img {
+        width: auto;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.cart__total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 30px 0 0;
+  padding: 0 50px;
+  @include responsive(mobile) {
+    padding: 0 20px;
+  }
+  h3 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin: 0;
+    @include responsive(mobile) {
+      font-size: 1.3rem;
+    }
+  }
+  .cart__total-buttons {
+    margin: 10px 0;
+    display: flex;
+    gap: 20px;
+    align-self: flex-end;
+    @include responsive(mobile) {
+      align-self: auto;
+    }
+    .button {
+      @include responsive(mobile) {
+        padding: 5px 10px;
+        text-align: center;
+        font-size: 0.8rem;
+        width: max-content;
       }
     }
   }

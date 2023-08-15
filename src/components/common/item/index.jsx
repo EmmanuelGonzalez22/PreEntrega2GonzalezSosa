@@ -60,9 +60,11 @@ const Item = ({
   quantity,
 }) => {
   return (
-    <article className={!showCartItem ? "parent" : "cardCart"}>
-      <div className={!showCartItem && "card"}>
-        <div className={!showCartItem && "content-box"}>
+    <article className={!showCartItem ? "parent" : "parentCart"}>
+      <div className={!showCartItem ? "card" : "cardCart"}>
+        <div
+          className={!showCartItem ? "content-box" : "containerCart__content"}
+        >
           <header className='card-title'>
             <h2>{capitalizeFirstLetter(name)}</h2>
           </header>
@@ -97,9 +99,7 @@ const Item = ({
           </footer>
         </div>
         <div className={!showCartItem ? "date-box" : "containerCart__img"}>
-          {!showCartItem && (
-            <div className='' style={{ backgroundImage: `url(${img})` }}></div>
-          )}
+          <img src={img} alt={name} />
         </div>
       </div>
     </article>

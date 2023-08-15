@@ -3,17 +3,22 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  flex-wrap: wrap;
   margin-top: 70px;
   gap: 5rem;
+  @include responsive(tablet) {
+    justify-content: center;
+    margin-top: 30px;
+  }
   &.justify-center {
     justify-content: center;
   }
   .border__gradient {
-    width: 459px;
     border-width: 3px;
     background-image: linear-gradient(45deg, #ff0000, #ffb700);
     border-radius: 2.7em;
     height: 100%;
+    margin: 0 1rem;
   }
   .form {
     display: flex;
@@ -22,7 +27,6 @@
     gap: 10px;
     background-image: $terciaryColor;
     padding: 30px;
-    width: 450px;
     border-radius: 2.5em;
     height: 95%;
     margin: 5px;
@@ -55,23 +59,34 @@
       gap: 2rem;
       margin-top: 2rem;
       justify-content: center;
+      @include responsive(mobile) {
+        gap: 1rem;
+      }
       .button {
         padding: 10px 5px;
+        @include responsive(mobile) {
+          padding: 5px 10px;
+          width: max-content;
+          font-size: 0.8rem;
+        }
       }
     }
   }
   .resume__container {
     margin-right: 30px;
-    width: 35%;
+    min-width: 35%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 1rem;
     background-image: $terciaryColor;
-    border: 5px solid $primaryColor;
-    border-radius: 2.7em;
-    padding-top: 35px;
+    border: 2px solid #ff5900;
+    border-radius: 0.5em;
+    padding-top: 2px;
     color: #ff5900;
+    @include responsive(mobile) {
+      margin: 0 1rem;
+    }
     .gridProductos {
       display: flex;
       flex-direction: column;
@@ -80,6 +95,9 @@
       overflow: scroll;
       scroll-behavior: smooth;
       gap: 0.5rem;
+      @include responsive(mobile) {
+        height: 150px;
+      }
       &::-webkit-scrollbar {
         width: 5px;
       }
@@ -105,7 +123,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 5px 20px;
+        padding: 5px 20px 0 5px;
       }
       .containerCart__img {
         order: -1;
@@ -122,6 +140,10 @@
           font-size: 1.2rem;
           font-weight: 700;
           margin: 0;
+          color: $secondaryColor;
+          @include responsive(mobile) {
+            font-size: 0.9rem;
+          }
         }
       }
       .cardCart__price {
