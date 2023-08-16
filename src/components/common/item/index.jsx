@@ -61,7 +61,7 @@ const Item = ({
 }) => {
   return (
     <article className={!showCartItem ? "parent" : "parentCart"}>
-      <div className={!showCartItem ? "card" : "cardCart"}>
+      <div className={!showCartItem ? "cards" : "cardCart"}>
         <div
           className={!showCartItem ? "content-box" : "containerCart__content"}
         >
@@ -72,9 +72,9 @@ const Item = ({
             className={!showCartItem ? "card__price" : "cardCart__price"}
           >
             {!showCartItem ? (
-              <h3 className='card-content'>Precio: $ {price}</h3>
+              <h3 className='card-content'>Precio: ${price}</h3>
             ) : (
-              <h3>$ {price}</h3>
+              <h3>${price}</h3>
             )}
             {showCartItem && (
               <section className='cardCart__subtotal'>
@@ -98,7 +98,7 @@ const Item = ({
             )}
           </footer>
         </div>
-        <div className={!showCartItem ? "date-box" : "containerCart__img"}>
+        <div className={!showCartItem ? "img-box" : "containerCart__img"}>
           <img src={img} alt={name} />
         </div>
       </div>

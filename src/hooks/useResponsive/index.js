@@ -16,6 +16,7 @@ const useResponsive = (maxWidth = 1152) => {
         window.removeEventListener("resize", handleResize);
       };
     }
+    // eslint-disable-next-line
   }, [window.innerWidth]);
 
   return isSmallScreen;
