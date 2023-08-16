@@ -18,9 +18,9 @@ const ItemDetail = ({ item }) => {
     <article className='itemDetail__container'>
       <header className='detail__header'>
         <h4 className='fw-bold'>{name.toUpperCase()}</h4>
-        <div>
+        <picture>
           <img src={img} alt={name} />
-        </div>
+        </picture>
       </header>
       <section className='price__section'>
         <h5 className='price__card'>
